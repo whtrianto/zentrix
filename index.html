@@ -8,7 +8,7 @@
     <!-- Deskripsi untuk SEO -->
     <meta name="description" content="Zentrix menyediakan jasa pembuatan website profesional untuk profil perusahaan, toko online, website custom, landing page, dan sistem informasi. Wujudkan ide digital Anda bersama kami.">
     <meta name="keywords" content="Zentrix, jasa website, buat website, website custom, website murah, website profesional, toko online, website pernikahan, company profile">
-
+    <link rel="icon" href="assets/img/logo2.png">
     <!-- Google Fonts, Font Awesome, AOS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +17,151 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <link rel="stylesheet" href="assets/css/style.css"> 
+
+    <!-- === CSS UNTUK LIVE DEMO DITAMBAHKAN DI SINI === -->
+    <style>
+        /* === CSS BARU UNTUK PORTFOLIO OVERLAY === */
+
+/* Wrapper untuk gambar agar bisa diposisikan overlay */
+/* === CSS LENGKAP & DIPERBARUI UNTUK PORTFOLIO === */
+
+.project-card {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px 15px 0 0; 
+}
+
+.project-image {
+    display: block;
+    width: 100%;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.8) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.05);
+}
+
+.project-overlay-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    transform: translateY(15px);
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-overlay-content {
+    transform: translateY(0);
+}
+
+.overlay-title {
+    color: #fff;
+    font-size: 1.1rem;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+.overlay-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.overlay-button {
+    position: relative;
+    width: 38px;
+    height: 18px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--primary-color, #007bff);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.overlay-button:hover {
+    background-color: var(--primary-color, #007bff);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+/* === INI PERBAIKANNYA === */
+.overlay-button i {
+    font-size: 1.5rem; /* Mengatur ukuran ikon secara spesifik */
+    transition: transform 0.3s ease;
+}
+
+.overlay-button:hover i {
+    transform: scale(1.1); /* Efek zoom kecil pada ikon */
+}
+/* === AKHIR PERBAIKAN === */
+
+
+.overlay-button::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.overlay-button:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.project-content {
+    padding: 20px;
+    background-color: var(--card-bg);
+    border-radius: 0 0 15px 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-content p {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+    </style>
 </head>
 <body>
     <div id="particles-js"></div>
@@ -123,16 +268,104 @@
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">Portofolio Proyek Kami</h2>
                 <div class="card-container">
-                    <div class="card project-card" data-aos="fade-up" data-aos-delay="100"><img src="https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="E-Commerce" class="project-image"><div class="project-content"><h3>Website E-Commerce Furnitur</h3><p>Platform e-commerce modern untuk toko mebel, dilengkapi manajemen produk, keranjang belanja, dan integrasi pembayaran.</p><div class="project-tags"><span class="tag">#E-commerce</span><span class="tag">#PHP</span></div></div></div>
-                    <div class="card project-card" data-aos="fade-up" data-aos-delay="200"><img src="https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Wedding" class="project-image"><div class="project-content"><h3>Undangan Pernikahan Digital</h3><p>Website undangan interaktif dengan fitur RSVP online, galeri foto, peta lokasi, dan ucapan digital untuk para tamu.</p><div class="project-tags"><span class="tag">#Wedding</span><span class="tag">#JavaScript</span></div></div></div>
-                    <div class="card project-card" data-aos="fade-up" data-aos-delay="300"><img src="https://images.pexels.com/photos/256455/pexels-photo-256455.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Library System" class="project-image"><div class="project-content"><h3>Sistem Informasi Perpustakaan</h3><p>Membangun sistem manajemen perpustakaan berbasis web untuk memudahkan pencatatan, peminjaman, dan pencarian buku.</p><div class="project-tags"><span class="tag">#SistemInformasi</span><span class="tag">#PHP</span></div></div></div>
-                    <div class="card project-card" data-aos="fade-up" data-aos-delay="400"><img src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Construction Profile" class="project-image"><div class="project-content"><h3>Profil Perusahaan Konstruksi</h3><p>Website korporat yang kokoh dan profesional untuk perusahaan konstruksi, menampilkan portofolio proyek, layanan, dan profil tim.</p><div class="project-tags"><span class="tag">#CompanyProfile</span><span class="tag">#UI/UX</span></div></div></div>
-                    <div class="card project-card" data-aos="fade-up" data-aos-delay="500"><img src="https://images.pexels.com/photos/6476589/pexels-photo-6476589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="App Landing Page" class="project-image"><div class="project-content"><h3>Landing Page Aplikasi Produktivitas</h3><p>Halaman landas yang berfokus pada konversi untuk mempromosikan aplikasi mobile baru, lengkap dengan fitur dan testimoni.</p><div class="project-tags"><span class="tag">#LandingPage</span><span class="tag">#Marketing</span></div></div></div>
-                    <div class="card project-card" data-aos="fade-up" data-aos-delay="600"><img src="https://images.pexels.com/photos/3998421/pexels-photo-3998421.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Clinic Booking" class="project-image"><div class="project-content"><h3>Website Booking Klinik Kecantikan</h3><p>Website elegan dengan sistem booking online terintegrasi, memudahkan klien memilih layanan, terapis, dan jadwal perawatan.</p><div class="project-tags"><span class="tag">#BookingSystem</span><span class="tag">#Integrasi</span></div></div></div>
-                    <div class="card project-card" data-aos="fade-up" data-aos-delay="700"><img src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Restaurant Website" class="project-image"><div class="project-content"><h3>Website Restoran & Delivery</h3><p>Desain web yang menggugah selera untuk restoran, menampilkan menu digital, galeri, dan sistem pemesanan online untuk takeaway.</p><div class="project-tags"><span class="tag">#Kuliner</span><span class="tag">#OnlineOrder</span></div></div></div>
-                    <div class="card project-card" data-aos="fade-up" data-aos-delay="800"><img src="https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="E-Learning Platform" class="project-image"><div class="project-content"><h3>Platform E-Learning Interaktif</h3><p>Portal kursus online dengan manajemen materi, progres siswa, kuis interaktif, dan penerbitan sertifikat otomatis.</p><div class="project-tags"><span class="tag">#E-learning</span><span class="tag">#LMS</span></div></div></div>
-                    <div class="card project-card" data-aos="fade-up" data-aos-delay="900"><img src="https://images.pexels.com/photos/101808/pexels-photo-101808.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Real Estate Portal" class="project-image"><div class="project-content"><h3>Portal Properti & Real Estate</h3><p>Website agen properti dengan listing canggih, fitur pencarian berdasarkan filter, peta, dan kalkulator KPR.</p><div class="project-tags"><span class="tag">#Properti</span><span class="tag">#Listing</span></div></div></div>
-                    <div class="card project-card" data-aos="fade-up" data-aos-delay="1000"><img src="https://images.pexels.com/photos/5926395/pexels-photo-5926395.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="News Portal" class="project-image"><div class="project-content"><h3>Portal Berita & Gaya Hidup</h3><p>Majalah digital dengan tata letak yang bersih, loading cepat, dan sistem manajemen konten (CMS) yang mudah digunakan editor.</p><div class="project-tags"><span class="tag">#Media</span><span class="tag">#CMS</span></div></div></div>
+        
+                    <!-- KARTU PROYEK 1 -->
+                    <div class="card project-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="project-image-wrapper">
+                            <img src="https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="E-Commerce" class="project-image">
+                            <div class="project-overlay">
+                                <div class="project-overlay-content">
+                                    <div>
+                                        <h4 class="overlay-title">E-Commerce Furnitur</h4>
+                                    </div>
+                                    <div class="overlay-actions">
+                                        <a href="#" target="_blank" class="overlay-button" data-tooltip="Live Demo"><i class="fas fa-eye"></i></a>
+                                        <a href="#" target="_blank" class="overlay-button" data-tooltip="Lihat Detail"><i class="fas fa-link"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <p>Platform e-commerce modern, dilengkapi manajemen produk, keranjang belanja, dan integrasi pembayaran.</p>
+                            <div class="project-tags">
+                                <span class="tag">#E-commerce</span><span class="tag">#PHP</span>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- KARTU PROYEK 2 -->
+                    <div class="card project-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="project-image-wrapper">
+                            <img src="https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Wedding" class="project-image">
+                            <div class="project-overlay">
+                                <div class="project-overlay-content">
+                                    <div>
+                                        <h4 class="overlay-title">Undangan Pernikahan</h4>
+                                    </div>
+                                    <div class="overlay-actions">
+                                        <a href="#" target="_blank" class="overlay-button" data-tooltip="Live Demo"><i class="fas fa-eye"></i></a>
+                                        <a href="#" target="_blank" class="overlay-button" data-tooltip="Lihat Detail"><i class="fas fa-link"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <p>Website undangan interaktif dengan fitur RSVP online, galeri foto, peta lokasi, dan ucapan digital.</p>
+                            <div class="project-tags">
+                                <span class="tag">#Wedding</span><span class="tag">#JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- KARTU PROYEK 3 -->
+                    <div class="card project-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="project-image-wrapper">
+                            <img src="https://images.pexels.com/photos/256455/pexels-photo-256455.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Library System" class="project-image">
+                             <div class="project-overlay">
+                                <div class="project-overlay-content">
+                                    <div><h4 class="overlay-title">Sistem Perpustakaan</h4></div>
+                                    <div class="overlay-actions">
+                                        <a href="#" target="_blank" class="overlay-button" data-tooltip="Live Demo"><i class="fas fa-eye"></i></a>
+                                        <a href="#" target="_blank" class="overlay-button" data-tooltip="Lihat Detail"><i class="fas fa-link"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <p>Sistem manajemen perpustakaan berbasis web untuk memudahkan pencatatan, peminjaman, dan pencarian buku.</p>
+                            <div class="project-tags"><span class="tag">#SistemInformasi</span><span class="tag">#PHP</span></div>
+                        </div>
+                    </div>
+                    
+                    <!-- (Lanjutkan pola yang sama untuk semua kartu proyek lainnya) -->
+                    <!-- Contoh untuk beberapa kartu lagi -->
+        
+                    <div class="card project-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="project-image-wrapper">
+                            <img src="https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Construction Profile" class="project-image">
+                            <div class="project-overlay"><div class="project-overlay-content"><div><h4 class="overlay-title">Profil Konstruksi</h4></div><div class="overlay-actions"><a href="#" target="_blank" class="overlay-button" data-tooltip="Live Demo"><i class="fas fa-eye"></i></a><a href="#" target="_blank" class="overlay-button" data-tooltip="Lihat Detail"><i class="fas fa-link"></i></a></div></div></div>
+                        </div>
+                        <div class="project-content"><p>Website korporat profesional untuk perusahaan konstruksi, menampilkan portofolio proyek dan layanan.</p><div class="project-tags"><span class="tag">#CompanyProfile</span><span class="tag">#UI/UX</span></div></div>
+                    </div>
+        
+                    <div class="card project-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="project-image-wrapper">
+                            <img src="https://images.pexels.com/photos/6476589/pexels-photo-6476589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="App Landing Page" class="project-image">
+                            <div class="project-overlay"><div class="project-overlay-content"><div><h4 class="overlay-title">Landing Page Aplikasi</h4></div><div class="overlay-actions"><a href="#" target="_blank" class="overlay-button" data-tooltip="Live Demo"><i class="fas fa-eye"></i></a><a href="#" target="_blank" class="overlay-button" data-tooltip="Lihat Detail"><i class="fas fa-link"></i></a></div></div></div>
+                        </div>
+                        <div class="project-content"><p>Halaman landas yang berfokus pada konversi untuk mempromosikan aplikasi mobile, lengkap dengan fitur dan testimoni.</p><div class="project-tags"><span class="tag">#LandingPage</span><span class="tag">#Marketing</span></div></div>
+                    </div>
+        
+                    <div class="card project-card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="project-image-wrapper">
+                            <img src="https://images.pexels.com/photos/3998421/pexels-photo-3998421.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Clinic Booking" class="project-image">
+                            <div class="project-overlay"><div class="project-overlay-content"><div><h4 class="overlay-title">Booking Klinik</h4></div><div class="overlay-actions"><a href="#" target="_blank" class="overlay-button" data-tooltip="Live Demo"><i class="fas fa-eye"></i></a><a href="#" target="_blank" class="overlay-button" data-tooltip="Lihat Detail"><i class="fas fa-link"></i></a></div></div></div>
+                        </div>
+                        <div class="project-content"><p>Website elegan dengan sistem booking online, memudahkan klien memilih layanan, terapis, dan jadwal perawatan.</p><div class="project-tags"><span class="tag">#BookingSystem</span><span class="tag">#Integrasi</span></div></div>
+                    </div>
+                    
+                    <!-- Silakan lanjutkan untuk kartu 7-10 dengan pola yang sama -->
+        
                 </div>
             </div>
         </section>
