@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zentrix Technologies Clone (Single File)</title>
+    
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- ==================== CSS STYLES BEGIN ==================== -->
+    <style>
+        /* Import Font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        /* CSS Variables */
+        :root {
+            --color-primary: #6366f1;
+            --color-primary-dark: #4f46e5;
+            --color-bg: #0a0a0a;
+            --color-bg-surface: #18181b;
+            --color-border: rgba(255, 255, 255, 0.1);
+            --color-text-primary: #fafafa;
+            --color-text-secondary: #a1a1aa;
+
+            --font-family: 'Inter', sans-serif;
+            --header-height: 5rem;
+        }
+
+        /* Base Styles & Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--color-bg);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Reusable Components */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section__header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section__tag {
+            display: inline-block;
+            color: var(--color-primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .section__title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section__subtitle {
+            color: var(--color-text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: transparent;
+            border: 1px solid var(--color-border);
+            color: var(--color-text-primary);
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: var(--color-bg-surface);
+        }
+
+        .button--primary {
+            background-color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        .button--primary:hover {
+            background-color: var(--color-primary-dark);
+            border-color: var(--color-primary-dark);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .header.scrolled {
+            background-color: rgba(10, 10, 10, 0.9);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav {
+            height: var(--header-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav__logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-text-primary);
+        }
+
+        .nav__logo i {
+            color: var(--color-primary);
+        }
+
+        .nav__list {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav__link {
+            color: var(--color-text-secondary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav__link:hover, .nav__link.active-link {
+            color: var(--color-text-primary);
+        }
+
+        .nav__link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav__link:hover::after, .nav__link.active-link::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero__video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            transform: translate(-50%, -50%);
+            z-index: -2;
+        }
+        .hero__video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero__overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0.9) 100%);
+            z-index: -1;
+        }
+
+        .hero__content {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero__title {
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        .hero__title-line {
+            display: block;
+        }
+
+        .hero__description {
+            font-size: 1.2rem;
+            color: var(--color-text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero__scroll {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--color-text-secondary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+            40% { transform: translate(-50%, -10px); }
+            60% { transform: translate(-50%, -5px); }
+        }
+
+        /* Clients Section */
+        .clients {
+            padding: 3rem 0;
+            background-color: var(--color-bg);
+        }
+
+        .clients__title {
+            text-align: center;
+            color: var(--color-text-secondary);
+            font-weight: 500;
+            margin-bottom: 2.5rem;
+        }
+
+        .clients__grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .client__logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            color: var(--color-text-secondary);
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: filter 0.3s ease, opacity 0.3s ease;
+        }
+
+        .client__logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .client__logo i {
+            font-size: 2rem;
+        }
+
+        /* Services Section */
+        .services__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--color-bg-surface);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 0, rgba(99, 102, 241, 0.2), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card__icon {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+        }
+        .service-card__title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .service-card__description {
+            color: var(--color-text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        .service-card__link {
+            font-weight: 600;
+            color: var(--color-text-primary);
+            transition: color 0.3s ease;
+        }
+        .service-card__link i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        .service-card__link:hover {
+            color: var(--color-primary);
+        }
+        .service-card__link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* About Section (Why Choose Us) */
+        .about__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+            align-items: center;
+        }
+        .about__image img {
+            border-radius: 12px;
+        }
+        .about__content .section__title,
+        .about__content .section__subtitle {
+            text-align: left;
+            margin-left: 0;
+        }
+
+        /* Accordion */
+        .accordion__item {
+            border-bottom: 1px solid var(--color-border);
+            padding: 1rem 0;
+        }
+        .accordion__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        .accordion__title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .accordion__icon {
+            transition: transform 0.3s ease;
+        }
+        .accordion__content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+        .accordion__content p {
+            color: var(--color-text-secondary);
+            padding-top: 1rem;
+        }
+        .accordion__item.active .accordion__content {
+            max-height: 100px;
+        }
+        .accordion__item.active .accordion__icon {
+            transform: rotate(180deg);
+        }
+
+        /* Our Work Section */
+        .work__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        .work__card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .work__card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .work__card:hover img {
+            transform: scale(1.05);
+        }
+        .work__overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 100%);
+            transform: translateY(20%);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+        .work__card:hover .work__overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .work__overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+        .work__overlay span {
+            color: var(--color-text-secondary);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--color-bg-surface);
+        }
+        .footer__cta {
+            text-align: center;
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--color-border);
+            margin-bottom: 4rem;
+        }
+        .footer__cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        .footer__cta p {
+            color: var(--color-text-secondary);
+            margin-bottom: 2rem;
+        }
+        .footer__grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        .footer__brand p {
+            color: var(--color-text-secondary);
+            margin: 1rem 0;
+            max-width: 300px;
+        }
+        .footer__socials a {
+            color: var(--color-text-secondary);
+            font-size: 1.5rem;
+            margin-right: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        .footer__socials a:hover {
+            color: var(--color-primary);
+        }
+        .footer__links h4, .footer__contact h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        .footer__links ul li, .footer__contact ul li {
+            margin-bottom: 0.75rem;
+        }
+        .footer__links ul li a, .footer__contact ul li {
+            color: var(--color-text-secondary);
+            transition: color 0.3s ease;
+        }
+        .footer__links ul li a:hover {
+            color: var(--color-primary);
+        }
+        .footer__contact i {
+            margin-right: 0.75rem;
+            color: var(--color-primary);
+        }
+        .footer__bottom {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--color-border);
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Navigation Styles */
+        .nav__toggle, .nav__close {
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+        }
+
+        .button-header-contact {
+            display: inline-block;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 992px) {
+            .nav__menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 60%;
+                height: 100%;
+                background-color: var(--color-bg-surface);
+                padding: 6rem 2rem 2rem;
+                transition: right 0.4s ease-in-out;
+                z-index: 101;
+            }
+            .show-menu {
+                right: 0;
+            }
+            .nav__list {
+                flex-direction: column;
+                gap: 2.5rem;
+            }
+            .nav__link {
+                font-size: 1.2rem;
+            }
+            .nav__close {
+                position: absolute;
+                top: 1.5rem;
+                right: 1.5rem;
+                display: block;
+            }
+            .nav__toggle {
+                display: block;
+            }
+            .button-header-contact {
+                display: none;
+            }
+            .about__grid { 
+                grid-template-columns: 1fr; 
+            }
+            .about__image { 
+                order: -1; 
+                margin-bottom: 2rem; 
+            }
+            .footer__grid { 
+                grid-template-columns: 1fr 1fr; 
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .section__title { 
+                font-size: 2rem; 
+            }
+            .hero__title { 
+                font-size: 2.2rem; 
+            }
+            .footer__grid { 
+                grid-template-columns: 1fr; 
+            }
+            .nav__menu {
+                width: 80%;
+            }
+        }
+
+    </style>
+    <!-- ==================== CSS STYLES END ==================== -->
+</head>
+<body>
+
+    <!-- ==================== HTML CONTENT BEGINS ==================== -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <i class="fas fa-bolt"></i> ZENTRIX
+            </a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+                    <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About Us</a></li>
+                    <li class="nav__item"><a href="#work" class="nav__link">Our Work</a></li>
+                </ul>
+                <div class="nav__close" id="nav-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <a href="#contact" class="button button-header-contact">Contact Us</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero__video">
+                <video src="https://videos.pexels.com/video-files/853875/853875-hd.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <div class="hero__overlay"></div>
+            <div class="hero__content container">
+                <h1 class="hero__title">
+                    <span class="hero__title-line">Innovate. Integrate.</span>
+                    <span class="hero__title-line">Elevate.</span>
+                </h1>
+                <p class="hero__description">
+                    Empowering your business with transformative technology solutions. We turn complex challenges into impactful results.
+                </p>
+                <a href="#services" class="button button--primary">Explore Our Services</a>
+            </div>
+            <a href="#clients" class="hero__scroll">
+                <i class="fas fa-arrow-down"></i>
+                <span>Scroll Down</span>
+            </a>
+        </section>
+
+        <section class="clients section" id="clients">
+            <div class="container">
+                <h4 class="clients__title">Trusted by the world's most innovative companies</h4>
+                <div class="clients__grid">
+                    <div class="client__logo"><i class="fab fa-dribbble"></i> Dribbble</div>
+                    <div class="client__logo"><i class="fab fa-google"></i> Google</div>
+                    <div class="client__logo"><i class="fab fa-spotify"></i> Spotify</div>
+                    <div class="client__logo"><i class="fab fa-slack"></i> Slack</div>
+                    <div class="client__logo"><i class="fab fa-amazon"></i> Amazon</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section container" id="services">
+            <div class="section__header">
+                <span class="section__tag">Our Services</span>
+                <h2 class="section__title">Core Digital Solutions We Offer</h2>
+                <p class="section__subtitle">From custom software to cloud infrastructure, we provide the expertise to accelerate your digital transformation.</p>
+            </div>
+            <div class="services__grid">
+                <div class="service-card">
+                    <div class="service-card__icon"><i class="fas fa-code"></i></div>
+                    <h3 class="service-card__title">Software Development</h3>
+                    <p class="service-card__description">Crafting scalable and secure web & mobile applications tailored to your business needs.</p>
+                    <a href="#" class="service-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon"><i class="fas fa-cloud"></i></div>
+                    <h3 class="service-card__title">Cloud & DevOps</h3>
+                    <p class="service-card__description">Optimizing your infrastructure with cloud migration, automation, and CI/CD pipelines.</p>
+                    <a href="#" class="service-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="service-card__title">Cyber Security</h3>
+                    <p class="service-card__description">Protecting your digital assets with proactive threat detection and robust security protocols.</p>
+                    <a href="#" class="service-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section about" id="about">
+            <div class="container about__grid">
+                <div class="about__image">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1770&q=80" alt="Team discussing a project">
+                </div>
+                <div class="about__content">
+                    <span class="section__tag">Why Choose Us</span>
+                    <h2 class="section__title" style="text-align: left;">Your Partner in Digital Excellence</h2>
+                    <p class="section__subtitle" style="text-align: left; margin-left:0;">We're more than just a vendor; we're a dedicated partner invested in your success. Our agile approach and commitment to quality set us apart.</p>
+                    <div class="accordion">
+                        <div class="accordion__item">
+                            <header class="accordion__header">
+                                <h3 class="accordion__title">Expert Team</h3>
+                                <i class="fas fa-chevron-down accordion__icon"></i>
+                            </header>
+                            <div class="accordion__content">
+                                <p>Our team consists of certified professionals with years of experience in diverse technology stacks.</p>
+                            </div>
+                        </div>
+                        <div class="accordion__item">
+                            <header class="accordion__header">
+                                <h3 class="accordion__title">Client-Centric Approach</h3>
+                                <i class="fas fa-chevron-down accordion__icon"></i>
+                            </header>
+                            <div class="accordion__content">
+                                <p>We prioritize clear communication and collaboration to ensure the final product aligns perfectly with your vision.</p>
+                            </div>
+                        </div>
+                        <div class="accordion__item">
+                            <header class="accordion__header">
+                                <h3 class="accordion__title">Proven Results</h3>
+                                <i class="fas fa-chevron-down accordion__icon"></i>
+                            </header>
+                            <div class="accordion__content">
+                                <p>We have a track record of delivering high-impact solutions for clients across various industries.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section container" id="work">
+             <div class="section__header">
+                <span class="section__tag">Our Work</span>
+                <h2 class="section__title">Showcasing Our Success Stories</h2>
+                <p class="section__subtitle">Explore a selection of projects that demonstrate our capability to deliver excellence and innovation.</p>
+            </div>
+            <div class="work__grid">
+                <div class="work__card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1770&q=80" alt="Project 1">
+                    <div class="work__overlay">
+                        <h3>Fintech Platform</h3>
+                        <span>Web Application</span>
+                    </div>
+                </div>
+                 <div class="work__card">
+                    <img src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?auto=format&fit=crop&w=870&q=80" alt="Project 2">
+                    <div class="work__overlay">
+                        <h3>E-commerce Solution</h3>
+                        <span>Cloud Migration</span>
+                    </div>
+                </div>
+                 <div class="work__card">
+                    <img src="https://images.unsplash.com/photo-1611095965923-a535a396b278?auto=format&fit=crop&w=1770&q=80" alt="Project 3">
+                    <div class="work__overlay">
+                        <h3>Healthcare Mobile App</h3>
+                        <span>Mobile Development</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer" id="contact">
+            <div class="container">
+                <div class="footer__cta">
+                    <h2>Let's build your next big idea.</h2>
+                    <p>Ready to start a project? Have a question? We'd love to hear from you.</p>
+                    <a href="mailto:halo@zentrix.com" class="button button--primary">Get In Touch</a>
+                </div>
+                <div class="footer__grid">
+                    <div class="footer__brand">
+                         <a href="#" class="nav__logo">
+                            <i class="fas fa-bolt"></i> ZENTRIX
+                        </a>
+                        <p>Innovate. Integrate. Elevate.</p>
+                         <div class="footer__socials">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer__links">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#work">Our Work</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__contact">
+                        <h4>Contact Info</h4>
+                        <ul>
+                            <li><i class="fas fa-envelope"></i> halo@zentrix.com</li>
+                            <li><i class="fas fa-phone"></i> +62 812 3456 7890</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer__bottom">
+                    <p>© 2023 Zentrix Technologies Clone. For educational purposes only.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <!-- ==================== HTML CONTENT ENDS ==================== -->
+
+    <!-- ==================== JAVASCRIPT LOGIC BEGINS ==================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Efek Header saat scroll
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Navigasi Active Link
+            const navLinks = document.querySelectorAll('.nav__link');
+            const sections = document.querySelectorAll('section[id]');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active-link');
+                    const href = link.getAttribute('href');
+                    if (href && href.includes(current)) {
+                        link.classList.add('active-link');
+                    }
+                });
+            });
+
+            // Fungsionalitas Akordeon
+            const accordionItems = document.querySelectorAll('.accordion__item');
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.accordion__header');
+                header.addEventListener('click', () => {
+                    const openItem = document.querySelector('.accordion__item.active');
+                    if (openItem && openItem !== item) {
+                        openItem.classList.remove('active');
+                    }
+                    item.classList.toggle('active');
+                });
+            });
+            if (accordionItems.length > 0) {
+                accordionItems[0].classList.add('active');
+            }
+
+            // Mobile Menu Functionality
+            const navMenu = document.getElementById('nav-menu'),
+                  navToggle = document.getElementById('nav-toggle'),
+                  navClose = document.getElementById('nav-close');
+
+            if (navToggle) {
+                navToggle.addEventListener('click', () => {
+                    navMenu.classList.add('show-menu');
+                });
+            }
+
+            if (navClose) {
+                navClose.addEventListener('click', () => {
+                    navMenu.classList.remove('show-menu');
+                });
+            }
+
+            const navLinksMobile = document.querySelectorAll('.nav__link');
+            function linkAction() {
+                const navMenu = document.getElementById('nav-menu');
+                navMenu.classList.remove('show-menu');
+            }
+            navLinksMobile.forEach(n => n.addEventListener('click', linkAction));
+        });
+    </script>
+    <!-- ==================== JAVASCRIPT LOGIC ENDS ==================== -->
+</body>
+</html>

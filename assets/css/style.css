@@ -4,10 +4,11 @@
     --bg-secondary: #1e293b;
     --text-color: #e2e8f0;
     --text-secondary: #94a3b8;
-    --primary-color: #38bdf8;
+    --primary-color: #38bdf8; /* biru utama */
     --border-color: rgba(255, 255, 255, 0.1);
     --shadow-color: rgba(0, 0, 0, 0.3);
     --success-color: #28a745;
+    --accent-color: #38bdf8; /* biru utama untuk aksen/footer */
 }
 
 /* Light mode variables */
@@ -729,3 +730,42 @@ body.light-mode .modal-overlay {
         padding: 1.5rem;
     }
 }
+
+/* Footer styling update */
+.footer__cta h2,
+.footer__links h4,
+.footer__contact h4 {
+    color: var(--primary-color) !important;
+}
+.footer__cta p,
+.footer__slogan,
+.footer__links ul li a,
+.footer__contact ul li {
+    color: #b6e6ff !important;
+}
+.footer__brand .nav__logo span {
+    color: var(--primary-color) !important;
+}
+.footer__socials a {
+    color: #b6e6ff !important;
+    background: rgba(56,189,248,0.08) !important;
+}
+.footer__socials a:hover {
+    background: var(--primary-color) !important;
+    color: #181a1b !important;
+}
+.footer__contact ul li i {
+    color: var(--primary-color) !important;
+}
+.footer__bottom {
+    color: #b6e6ff !important;
+}
+.footer__links ul li a {
+    text-decoration: none !important;
+}
+.footer__links ul li a:hover {
+    color: var(--primary-color) !important;
+    text-decoration: none !important;
+}
+/* Hapus Menu Cepat */
+.footer__links { display: none !important; }

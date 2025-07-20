@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contoh Donasi & Crowdfunding | Zentrix Kreasi</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body { background: var(--bg-color); color: var(--text-color); }
+    .dc-container { max-width: 700px; margin: 3rem auto; background: var(--bg-secondary); border-radius: 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); padding: 2.5rem 2rem; }
+    .dc-title { font-size: 2rem; font-weight: 700; color: var(--primary-color); margin-bottom: 0.5rem; }
+    .dc-desc { font-size: 1.08rem; margin-bottom: 1.2rem; }
+    .dc-progress-bar { background: #222c3a; border-radius: 8px; height: 22px; margin-bottom: 1.2rem; overflow: hidden; }
+    .dc-progress { background: var(--primary-color); height: 100%; width: 68%; color: #fff; display: flex; align-items: center; justify-content: flex-end; font-weight: 600; padding-right: 1rem; border-radius: 8px 0 0 8px; transition: width 0.5s; }
+    .dc-gallery { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .dc-gallery img { width: 120px; height: 80px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .dc-donate { text-align: center; }
+    .dc-donate a { background: var(--primary-color); color: #181a1b; padding: 12px 32px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: background 0.2s; }
+    .dc-donate a:hover { background: #2563eb; color: #fff; }
+    @media (max-width: 600px) { .dc-gallery { justify-content: center; } }
+  </style>
+</head>
+<body>
+  <div class="dc-container">
+    <div class="dc-title">Bantu Pendidikan Anak Yatim</div>
+    <div class="dc-desc">Campaign donasi untuk mendukung pendidikan anak-anak yatim di daerah pelosok. Setiap donasi Anda sangat berarti untuk masa depan mereka.</div>
+    <div class="dc-progress-bar">
+      <div class="dc-progress" style="width:68%;">Rp 34.000.000 / Rp 50.000.000</div>
+    </div>
+    <div class="dc-gallery">
+      <img src="https://images.pexels.com/photos/6646916/pexels-photo-6646916.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Donasi 1">
+      <img src="https://images.pexels.com/photos/3992941/pexels-photo-3992941.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Donasi 2">
+      <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Donasi 3">
+    </div>
+    <div class="dc-donate">
+      <a href="#" target="_blank"><i class="fas fa-donate"></i> Donasi Sekarang</a>
+    </div>
+  </div>
+</body>
+</html> 
