@@ -184,30 +184,16 @@ window.addEventListener('scroll', () => {
 
 // Contact form functionality
 const contactForm = document.getElementById('contact-form');
-const modalContainer = document.getElementById('success-modal');
-const closeModalBtn = document.getElementById('close-modal-btn');
-const modalOverlay = document.querySelector('.modal-overlay');
 
-// Function to show modal
-function showModal() { 
-    modalContainer.classList.add('show'); 
-}
-
-// Function to close modal
-function closeModal() { 
-    modalContainer.classList.remove('show'); 
-}
-
-// Contact form submit event
-contactForm.addEventListener('submit', function(event) { 
-    event.preventDefault(); 
-    showModal(); 
-    contactForm.reset(); 
-    setTimeout(() => { 
-        closeModal(); 
-    }, 5000); 
+// Kirim data form ke WhatsApp
+contactForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const name = contactForm.elements['name'].value;
+    const email = contactForm.elements['email'].value;
+    const message = contactForm.elements['message'].value;
+    // Format pesan WhatsApp
+    const waMessage = `Halo Zentrix Kreasi!%0ASaya ingin konsultasi website.%0A%0ANama: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0APesan: ${encodeURIComponent(message)}`;
+    const waUrl = `https://wa.me/6289666077720?text=${waMessage}`;
+    window.open(waUrl, '_blank');
+    contactForm.reset();
 });
-
-// Close modal event listeners
-closeModalBtn.addEventListener('click', closeModal);
-modalOverlay.addEventListener('click', closeModal);
