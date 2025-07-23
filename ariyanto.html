@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Informasi Meta untuk SEO & Profesionalisme -->
+    <title>Klinik Sunat AriYanto - Profesional, Modern, & Ramah Anak</title>
+    <meta name="description" content="Klinik Sunat AriYanto menawarkan layanan sunat modern dengan metode terkini yang aman, minim nyeri, dan ditangani oleh tim medis profesional. Jadikan momen sunat pengalaman juara untuk si kecil.">
+    <meta name="keywords" content="sunat modern, klinik sunat, sunat anak, sunat tanpa suntik, sunat stapler, sunat klamp, dokter sunat profesional">
+    
+    <!-- Open Graph untuk Media Sosial -->
+    <meta property="og:title" content="Klinik Sunat AriYanto - Profesional & Ramah Anak" />
+    <meta property="og:description" content="Layanan sunat modern dengan teknologi terkini untuk kenyamanan si jagoan Anda." />
+    <meta property="og:image" content="https://i.ibb.co/6rZ3fJz/superhero-kid.png" /> <!-- Ganti dengan URL logo/gambar utama Anda -->
+    <meta property="og:url" content="https://www.alamatklinikanda.com" /> <!-- Ganti dengan URL website Anda -->
+    <meta property="og:type" content="website" />
+
+    <!-- Google Fonts: Nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Schema.org untuk Rich Snippets di Google (Sangat Penting untuk Profesionalisme) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalClinic",
+      "name": "Klinik Sunat AriYanto",
+      "image": "https://i.ibb.co/6rZ3fJz/superhero-kid.png",
+      "description": "Klinik spesialis sunat modern yang mengutamakan keamanan, kenyamanan, dan pengalaman positif bagi anak-anak.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Pahlawan Sehat No. 123",
+        "addressLocality": "Jakarta",
+        "postalCode": "12345",
+        "addressCountry": "ID"
+      },
+      "telephone": "+62211234567",
+      "url": "https://www.alamatklinikanda.com"
+    }
+    </script>
+
+    <!-- === SEMUA CSS ADA DI SINI === -->
+    <style>
+        /* === Pengaturan Dasar & Variabel Warna === */
+        :root {
+            --primary-color: #007BFF; /* Biru Profesional */
+            --secondary-color: #FFC107; /* Kuning Emas */
+            --background-color: #F8F9FA; /* Abu-abu sangat muda */
+            --text-color: #343A40; /* Abu-abu tua (hampir hitam) */
+            --card-bg: #FFFFFF;
+            --success-color: #28A745; /* Hijau */
+            --heading-font: 'Nunito', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* === Kontainer & Judul Section === */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        section {
+            padding: 5rem 0;
+            overflow: hidden;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-title h2 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+        .section-title p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 1rem auto 0 auto;
+            color: #6c757d;
+        }
+
+        /* === Background Animasi Halus === */
+        .animated-background {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden;
+            background: linear-gradient(135deg, #E0F7FA 0%, #FFFFFF 100%);
+        }
+        .shape {
+            position: absolute; bottom: -120px; background-color: rgba(0, 123, 255, 0.05); border-radius: 50%;
+            animation: rise 25s infinite linear;
+        }
+        .shape:nth-child(1) { left: 10%; width: 80px; height: 80px; animation-duration: 18s; }
+        .shape:nth-child(2) { left: 25%; width: 40px; height: 40px; animation-duration: 12s; animation-delay: 2s; background-color: rgba(255, 193, 7, 0.1); }
+        .shape:nth-child(3) { left: 50%; width: 120px; height: 120px; animation-duration: 22s; animation-delay: 1s; }
+        .shape:nth-child(4) { left: 75%; width: 60px; height: 60px; animation-duration: 15s; animation-delay: 3s; background-color: rgba(255, 193, 7, 0.1); }
+        .shape:nth-child(5) { left: 90%; width: 50px; height: 50px; animation-duration: 30s; animation-delay: 5s; }
+        @keyframes rise { 0% { transform: translateY(0); } 100% { transform: translateY(-120vh); } }
+
+        /* === Header & Navigasi === */
+        header {
+            background: var(--card-bg); padding: 1rem 0;
+            position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            transition: padding 0.3s ease;
+        }
+        .header-container {
+            display: flex; justify-content: space-between; align-items: center;
+            width: 90%; max-width: 1200px; margin: 0 auto;
+        }
+        .logo { font-size: 1.6rem; font-weight: 900; color: var(--primary-color); text-decoration: none; }
+        .logo i { color: var(--secondary-color); margin-right: 8px; }
+        nav a {
+            margin: 0 1rem; text-decoration: none; color: var(--text-color); font-weight: 700;
+            transition: color 0.3s ease; position: relative; padding-bottom: 5px;
+        }
+        nav a::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px;
+            background-color: var(--primary-color); transition: width 0.3s ease;
+        }
+        nav a:hover { color: var(--primary-color); }
+        nav a:hover::after { width: 100%; }
+
+        /* === Hero Section === */
+        #hero {
+            padding-top: 4rem; padding-bottom: 4rem; min-height: 90vh;
+            display: flex; align-items: center; text-align: left;
+        }
+        .hero-content {
+            display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+        }
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-size: 3.2rem; font-weight: 900; line-height: 1.2; margin-bottom: 1rem; }
+        .hero-text .highlight { color: var(--primary-color); }
+        .hero-text p { font-size: 1.2rem; margin-bottom: 2rem; color: #555; max-width: 500px; }
+        .cta-button {
+            background: var(--primary-color); color: white; padding: 1rem 2.5rem; border-radius: 50px;
+            text-decoration: none; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 20px rgba(0, 123, 255, 0.3);
+            transition: all 0.3s ease; display: inline-block;
+        }
+        .cta-button:hover { transform: translateY(-5px); box-shadow: 0 6px 25px rgba(0, 123, 255, 0.4); }
+        .cta-button i { margin-left: 0.5rem; }
+        .hero-image { flex: 1; text-align: center; }
+        .hero-image img {
+            max-width: 90%; height: auto;
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        /* === Grid Umum (Keunggulan, Metode, Tim) === */
+        .grid-container {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;
+        }
+
+        /* === Kartu (Card) === */
+        .card {
+            background: var(--card-bg); padding: 2rem; border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.07); text-align: center;
+            transition: all 0.3s ease; border: 1px solid #eee;
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 12px 35px rgba(0,0,0,0.1); }
+        .card .icon-wrapper {
+            background: linear-gradient(135deg, var(--primary-color), #00A3FF);
+            width: 80px; height: 80px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            margin: 0 auto 1.5rem auto; font-size: 2.5rem; color: white;
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+        }
+        .card h3 { font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--primary-color); }
+
+        /* === Bagian Metode === */
+        #metode { background-color: var(--card-bg); }
+        .metode-card .icon-wrapper { background: linear-gradient(135deg, var(--success-color), #34D399); box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3); }
+        .metode-card h3 { color: var(--success-color); }
+        .metode-card ul { list-style-type: none; padding: 0; margin-top: 1rem; text-align: left; }
+        .metode-card ul li { margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative; }
+        .metode-card ul li::before {
+            content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+            color: var(--success-color); position: absolute; left: 0;
+        }
+
+        /* === Bagian Tim Medis === */
+        .tim-medis-card img {
+            width: 150px; height: 150px; border-radius: 50%; object-fit: cover;
+            margin-bottom: 1.5rem; border: 5px solid var(--secondary-color);
+        }
+        .tim-medis-card h3 { color: var(--primary-color); margin-bottom: 0.2rem; }
+        .tim-medis-card .title { font-weight: 700; color: #6c757d; }
+        
+        /* === Bagian Alur Pelayanan === */
+        #alur { background-color: var(--card-bg); }
+        .alur-container {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            position: relative; padding-top: 2rem;
+        }
+        .alur-container::before {
+            content: ''; position: absolute; top: 40px; left: 10%; right: 10%;
+            height: 4px; background: repeating-linear-gradient(90deg, var(--primary-color), var(--primary-color) 10px, transparent 10px, transparent 20px);
+            z-index: 1;
+        }
+        .alur-step {
+            width: 22%; text-align: center; position: relative; z-index: 2;
+        }
+        .alur-step .step-icon {
+            width: 80px; height: 80px; background-color: var(--card-bg);
+            border: 4px solid var(--primary-color); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1rem auto; font-size: 2rem; color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        .alur-step:hover .step-icon {
+            background-color: var(--primary-color); color: white; transform: scale(1.1);
+        }
+        .alur-step h4 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+
+        /* === Bagian Galeri & Testimoni === */
+        .testimoni-card {
+            display: flex; flex-direction: column; align-items: center;
+            padding: 2.5rem 2rem;
+        }
+        .testimoni-card img {
+            width: 100px; height: 100px; border-radius: 50%; object-fit: cover;
+            border: 4px solid var(--primary-color); margin-bottom: 1rem;
+        }
+        .testimoni-card blockquote {
+            font-style: italic; color: #555; margin-bottom: 1rem;
+            position: relative; padding: 0 1.5rem;
+        }
+        .testimoni-card blockquote::before, .testimoni-card blockquote::after {
+            content: '"'; font-size: 3rem; color: var(--secondary-color);
+            position: absolute; line-height: 1;
+        }
+        .testimoni-card blockquote::before { top: -0.5rem; left: -0.5rem; }
+        .testimoni-card blockquote::after { bottom: -1.5rem; right: -0.5rem; }
+        .testimoni-card .author { font-weight: 700; color: var(--primary-color); }
+
+        /* === Bagian FAQ === */
+        #faq { background-color: var(--card-bg); }
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item {
+            background-color: white; border: 1px solid #e0e0e0;
+            border-radius: 10px; margin-bottom: 1rem; overflow: hidden;
+        }
+        .faq-item summary {
+            font-size: 1.1rem; font-weight: 700; padding: 1.5rem;
+            cursor: pointer; list-style: none; position: relative;
+            transition: background-color 0.3s ease;
+        }
+        .faq-item summary:hover { background-color: #f8f9fa; }
+        .faq-item summary::after {
+            content: '\f078'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+            position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+        .faq-item[open] summary { color: var(--primary-color); }
+        .faq-item[open] summary::after { transform: translateY(-50%) rotate(180deg); }
+        .faq-content { padding: 0 1.5rem 1.5rem 1.5rem; }
+
+        /* === Bagian Kontak & Lokasi === */
+        .kontak-container {
+            display: flex; gap: 3rem; align-items: flex-start;
+        }
+        .kontak-info { flex: 1; }
+        .kontak-info p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+        .kontak-detail { display: flex; align-items: center; margin-bottom: 1rem; font-size: 1.1rem; }
+        .kontak-detail i {
+            font-size: 1.5rem; color: var(--primary-color);
+            width: 40px; text-align: center; margin-right: 1rem;
+        }
+        .map-container { 
+            flex: 1.5; 
+            background: #fff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.10);
+            padding: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .map-container iframe {
+            border: 0;
+            width: 100%;
+            height: 350px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            background: #f8f9fa;
+            max-width: 100%;
+            display: block;
+        }
+
+        /* === Footer === */
+        footer {
+            background-color: var(--text-color); color: #ccc;
+            padding: 4rem 0 2rem 0; text-align: center;
+        }
+        .footer-container {
+            display: flex; justify-content: space-around;
+            flex-wrap: wrap; gap: 2rem; margin-bottom: 3rem;
+        }
+        .footer-col { flex: 1; min-width: 250px; text-align: left;}
+        .footer-col h4 { font-size: 1.2rem; color: white; margin-bottom: 1rem; border-bottom: 2px solid var(--secondary-color); padding-bottom: 0.5rem; display: inline-block; }
+        .footer-col ul { list-style: none; }
+        .footer-col li a { color: #ccc; text-decoration: none; transition: all 0.3s ease; }
+        .footer-col li a:hover { color: var(--secondary-color); padding-left: 5px; }
+        .social-links a {
+            display: inline-block; width: 40px; height: 40px; line-height: 40px;
+            text-align: center; background-color: rgba(255,255,255,0.1);
+            color: white; border-radius: 50%; margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover { background-color: var(--primary-color); transform: translateY(-3px); }
+        .footer-bottom { border-top: 1px solid #444; padding-top: 2rem; margin-top: 2rem; font-size: 0.9rem; }
+
+        /* === Animasi Scroll (Reveal) === */
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease-in-out; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* === Responsive Design === */
+        @media (max-width: 992px) {
+            .hero-content { flex-direction: column-reverse; text-align: center; }
+            .hero-text { margin-top: 2rem; }
+            .hero-text p { margin-left: auto; margin-right: auto; }
+            .alur-container { flex-direction: column; align-items: center; gap: 2rem; }
+            .alur-container::before { display: none; }
+            .alur-step { width: 80%; }
+        }
+        @media (max-width: 768px) {
+            .section-title h2 { font-size: 2.2rem; }
+            .hero-text h1 { font-size: 2.5rem; }
+            header { padding: 1rem 5%; }
+            .header-container { flex-direction: column; }
+            nav { margin-top: 1rem; }
+            nav a { margin: 0 0.5rem; }
+            .kontak-container { flex-direction: column; }
+            .footer-container { flex-direction: column; text-align: center; }
+            .footer-col { text-align: center; }
+            .map-container {
+                padding: 6px;
+                max-width: 98vw;
+            }
+            .map-container iframe {
+                height: 220px;
+            }
+        }
+        /* Hover khusus untuk link Zentrix di footer */
+        .footer-bottom a[href*="zentrix-kreasi"] {
+            color: #fff !important;
+            text-decoration: none !important;
+            transition: color 0.2s, text-decoration 0.2s;
+        }
+        .footer-bottom a[href*="zentrix-kreasi"]:hover {
+            color: #FFC107 !important;
+            text-decoration: underline !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- === Background Animasi === -->
+    <div class="animated-background">
+        <div class="shape"></div> <div class="shape"></div> <div class="shape"></div>
+        <div class="shape"></div> <div class="shape"></div>
+    </div>
+
+    <!-- === Header / Navigasi === -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo"><i class="fas fa-shield-heart"></i> AriYanto Sunat</a>
+            <nav>
+                <a href="#keunggulan">Keunggulan</a>
+                <a href="#metode">Metode</a>
+                <a href="#tim-medis">Tim Medis</a>
+                <a href="#faq">FAQ</a>
+                <a href="#kontak">Kontak</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- === Section Hero: Sambutan Utama === -->
+    <section id="hero">
+        <div class="container hero-content">
+            <div class="hero-text reveal">
+                <h1>Jadikan Momen Sunat <span class="highlight">Pengalaman Juara</span></h1>
+                <p>Di Klinik AriYanto, kami menggabungkan teknologi sunat modern dengan pendekatan psikologis yang ramah anak. Aman, nyaman, dan minim trauma untuk si jagoan Anda.</p>
+                <a href="#kontak" class="cta-button">Jadwalkan Konsultasi <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="hero-image reveal">
+                <img src="https://rumahsunatdrmahdian.com/wp-content/uploads/2021/08/banner-icon-01.png" alt="Dokter dan Anak Ceria" style="max-width:90%;height:auto;border-radius:18px;box-shadow:0 4px 24px rgba(0,123,255,0.10);">
+            </div>
+        </div>
+    </section>
+
+    <!-- === Section Keunggulan === -->
+    <section id="keunggulan">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Kenapa Memilih AriYanto?</h2>
+                <p>Kami mendedikasikan layanan kami untuk memberikan yang terbaik bagi putra Anda.</p>
+            </div>
+            <div class="grid-container">
+                <div class="card reveal">
+                    <div class="icon-wrapper"><i class="fas fa-medal"></i></div>
+                    <h3>Dokter Profesional</h3>
+                    <p>Ditangani langsung oleh tim dokter berpengalaman di bidang sunat modern.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-wrapper"><i class="fas fa-microscope"></i></div>
+                    <h3>Teknologi Terkini</h3>
+                    <p>Menggunakan metode modern (Klamp, Ring, Stapler) yang minim nyeri dan cepat pulih.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-wrapper"><i class="fas fa-child-reaching"></i></div>
+                    <h3>Ramah Anak</h3>
+                    <p>Suasana klinik didesain menyenangkan untuk mengurangi kecemasan anak.</p>
+                </div>
+                <div class="card reveal">
+                    <div class="icon-wrapper"><i class="fas fa-pump-medical"></i></div>
+                    <h3>Higienis & Steril</h3>
+                    <p>Mengutamakan sterilitas alat dan kebersihan ruangan sesuai standar medis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === Section Metode Modern === -->
+    <section id="metode" class="reveal">
+        <div class="container">
+            <div class="section-title">
+                <h2>Metode Sunat Modern Kami</h2>
+                <p>Pilih metode yang paling sesuai untuk kenyamanan dan pemulihan cepat si jagoan.</p>
+            </div>
+            <div class="grid-container">
+                <div class="card metode-card reveal">
+                    <div class="icon-wrapper"><i class="fas fa-ring"></i></div>
+                    <h3>Super Ring / Smart Klamp</h3>
+                    <ul>
+                        <li>Tanpa jahit & perban</li>
+                        <li>Minim pendarahan</li>
+                        <li>Anak bisa langsung beraktivitas</li>
+                        <li>Proses cepat (10-15 menit)</li>
+                    </ul>
+                </div>
+                <div class="card metode-card reveal">
+                    <div class="icon-wrapper"><i class="fas fa-wand-magic-sparkles"></i></div>
+                    <h3>Metode Stapler</h3>
+                    <ul>
+                        <li>Hasil paling presisi & estetis</li>
+                        <li>Proses sangat cepat</li>
+                        <li>Nyeri minimal pasca-sunat</li>
+                        <li>Cocok untuk remaja & dewasa</li>
+                    </ul>
+                </div>
+                <div class="card metode-card reveal">
+                    <div class="icon-wrapper"><i class="fas fa-bolt"></i></div>
+                    <h3>Metode Cauter (Laser)</h3>
+                    <ul>
+                        <li>Mengurangi risiko pendarahan</li>
+                        <li>Waktu pengerjaan relatif cepat</li>
+                        <li>Metode yang sudah teruji</li>
+                        <li>Membutuhkan jahitan</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- === Section Tim Medis === -->
+    <section id="tim-medis">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Bertemu Tim Komandan Medis</h2>
+                <p>Para ahli yang siap menyambut dan menangani putra Anda dengan tangan-tangan terampil dan hati yang ramah.</p>
+            </div>
+            <div class="grid-container">
+                <!-- Ganti foto, nama, dan titel di bawah ini -->
+                <div class="card tim-medis-card reveal">
+                    <img src="assets/img-bubay/ari.jpg" alt="Foto Dokter 1">
+                    <h3>Ari Yanto</h3>
+                    <p class="title">Spesialis Sunat & Kepala Klinik</p>
+                </div>
+                <div class="card tim-medis-card reveal">
+                    <img src="assets/img-bubay/bayu.jpg" alt="Foto Dokter 2">
+                    <h3>Bayu Wijayati</h3>
+                    <p class="title">Bidan & Konsultan Sunat Anak</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === Section Alur Pelayanan === -->
+    <section id="alur">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Alur Misi Menjadi Jagoan</h2>
+                <p>Proses yang mudah dan terstruktur untuk pengalaman terbaik.</p>
+            </div>
+            <div class="alur-container reveal">
+                <div class="alur-step">
+                    <div class="step-icon"><i class="fas fa-comments"></i></div>
+                    <h4>1. Konsultasi</h4>
+                    <p>Hubungi kami untuk konsultasi gratis mengenai metode terbaik.</p>
+                </div>
+                <div class="alur-step">
+                    <div class="step-icon"><i class="fas fa-calendar-check"></i></div>
+                    <h4>2. Pendaftaran</h4>
+                    <p>Jadwalkan hari dan jam tindakan yang paling nyaman untuk Anda.</p>
+                </div>
+                <div class="alur-step">
+                    <div class="step-icon"><i class="fas fa-shield-heart"></i></div>
+                    <h4>3. Tindakan</h4>
+                    <p>Proses sunat yang cepat, aman, dan nyaman di ruang tindakan kami.</p>
+                </div>
+                <div class="alur-step">
+                    <div class="step-icon"><i class="fas fa-house-medical-flag"></i></div>
+                    <h4>4. Perawatan</h4>
+                    <p>Kami berikan panduan lengkap dan layanan kontrol pasca-sunat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === Section Testimoni === -->
+    <section id="testimoni">
+        <div class="container">
+             <div class="section-title reveal">
+                <h2>Kata Para Orang Tua Juara</h2>
+                <p>Kepuasan dan senyum mereka adalah penghargaan terbesar bagi kami.</p>
+            </div>
+            <div class="grid-container">
+                <!-- Ganti testimoni di bawah ini -->
+                <div class="card testimoni-card reveal">
+                    <img src="https://i.ytimg.com/vi/RhYSgEsFqcg/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGHIgVSg-MA8=&rs=AOn4CLDCF8Wv6klLOusnE_Gp5aIOfmUDrg" alt="Foto Anak Testimoni">
+                    <blockquote>Anak saya awalnya takut sekali, tapi tim dokter di sini sabar dan lucu. Prosesnya cepat, setelahnya anak saya malah bangga pamer sertifikat jagoannya!</blockquote>
+                    <p class="author">- Ibu Rina, orang tua dari Budi (7th)</p>
+                </div>
+                 <div class="card testimoni-card reveal">
+                    <img src="https://rumahsunatsurabaya.com/wp-content/uploads/2024/07/muslim-boy-with-exciting-facial-expression-when-receiving-duit-raya-with-nice-baju-melayu-outfit-1024x684.jpg" alt="Foto Anak Testimoni">
+                    <blockquote>Penjelasannya detail, tempatnya bersih. Saya pilih metode stapler, hasilnya rapi dan anak saya cepat pulih. Sangat profesional. Recommended!</blockquote>
+                    <p class="author">- Bapak Haryono, orang tua dari Adi (9th)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === Section Promo Spesial === -->
+    <section id="promo" class="reveal" style="background:#e0f7fa;">
+      <div class="container">
+        <div class="section-title">
+          <h2>Promo & Hadiah Spesial!</h2>
+          <p>Daftarkan putra Anda bulan ini dan dapatkan:</p>
+        </div>
+        <div class="grid-container">
+          <div class="card" style="border:2px solid #FFC107;">
+            <div class="icon-wrapper" style="background:linear-gradient(135deg,#FFC107,#FFD54F);"><i class="fas fa-certificate"></i></div>
+            <h3>Sertifikat Jagoan Sunat</h3>
+            <p>Setiap anak akan mendapatkan sertifikat eksklusif sebagai “Jagoan AriYanto” setelah tindakan sunat.</p>
+          </div>
+          <div class="card" style="border:2px solid #28A745;">
+            <div class="icon-wrapper" style="background:linear-gradient(135deg,#28A745,#81C784);"><i class="fas fa-gift"></i></div>
+            <h3>Goodie Bag & Mainan</h3>
+            <p>Gratis goodie bag berisi mainan edukatif & snack sehat untuk membuat anak semakin semangat!</p>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:2rem;">
+          <a href="#kontak" class="cta-button" style="background:#FFC107;color:#343A40;">Klaim Promo Sekarang <i class="fas fa-gift"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- === Section FAQ === -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Pertanyaan Umum (FAQ)</h2>
+                <p>Jawaban atas keraguan Anda, kami siapkan di sini.</p>
+            </div>
+            <div class="faq-container reveal">
+                <details class="faq-item">
+                    <summary>Usia berapa yang terbaik untuk sunat?</summary>
+                    <div class="faq-content">
+                        <p>Sunat dapat dilakukan pada usia berapa pun, namun idealnya saat bayi atau anak-anak (di bawah 10 tahun) karena proses penyembuhannya cenderung lebih cepat dan lebih mudah dikelola.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Apakah prosesnya sakit?</summary>
+                    <div class="faq-content">
+                        <p>Kami menggunakan anestesi (bius) lokal yang efektif untuk menghilangkan rasa sakit selama prosedur. Beberapa metode bahkan menawarkan opsi bius tanpa jarum suntik untuk mengurangi kecemasan anak. Rasa tidak nyaman setelahnya sangat minimal dan dapat diatasi dengan obat pereda nyeri.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Berapa lama proses penyembuhannya?</summary>
+                    <div class="faq-content">
+                        <p>Tergantung metode yang dipilih. Untuk metode modern seperti Klamp atau Ring, anak bisa langsung pakai celana dan beraktivitas ringan. Penyembuhan total biasanya memakan waktu 7-14 hari, di mana kami akan memberikan panduan perawatan yang jelas.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Berapa biaya sunat di sini?</summary>
+                    <div class="faq-content">
+                        <p>Biaya bervariasi tergantung metode yang dipilih. Silakan hubungi kami melalui WhatsApp atau telepon untuk mendapatkan informasi detail mengenai biaya dan paket yang tersedia. Kami menawarkan harga yang kompetitif dengan kualitas layanan terbaik.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- === Section Kontak & Lokasi === -->
+    <section id="kontak">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Hubungi Markas Besar Kami</h2>
+                <p>Kami siap membantu Anda. Jangan ragu untuk bertanya atau membuat janji temu.</p>
+            </div>
+            <div class="kontak-container reveal">
+                <div class="kontak-info">
+                    <p>Orang tua hebat dapat menghubungi kami melalui:</p>
+                    <!-- <div class="kontak-detail">
+                        <i class="fas fa-phone"></i>
+                        <div><strong>Telepon:</strong><br>(021) 123-4567</div>
+                    </div> -->
+                    <div class="kontak-detail">
+                        <i class="fab fa-whatsapp"></i>
+                        <div><strong>WhatsApp:</strong><br><a href="https://wa.me/6283863735758" target="_blank" style="color:var(--primary-color);">+62-838-6373-5758 (Klik untuk Chat)</a></div>
+                    </div>
+                    <div class="kontak-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div><strong>Alamat:</strong><br>Boja, Kec. Majenang, Kabupaten Cilacap, Jawa Tengah 53257</div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <!-- Ganti src dengan embed Google Maps klinik Anda -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7258.512416166067!2d108.78411906169849!3d-7.27137708341397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f79e114f2e6e7%3A0x1bf4c84b2698dc60!2sBuBayOLShop!5e0!3m2!1sid!2sid!4v1753202306888!5m2!1sid!2sid" width="100%" height="350" style="border:0; max-width:600px; border-radius:18px; box-shadow:0 4px 24px rgba(0,0,0,0.08);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === Footer === -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>Klinik AriYanto</h4>
+                    <p>Keahlian medis dan inovasi untuk kesehatan dan kenyamanan putra Anda. Misi kami adalah menciptakan pengalaman sunat yang positif.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigasi Cepat</h4>
+                    <ul>
+                        <li><a href="#keunggulan">Keunggulan</a></li>
+                        <li><a href="#metode">Metode</a></li>
+                        <li><a href="#tim-medis">Tim Medis</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Terhubung Dengan Kami</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 <a href="http://zentrix-kreasi.vercel.app" style="color: #FFF;text-decoration: none;">Zentrix.</a> Didesain dengan <i class="fas fa-heart" style="color: #e25555;"></i> oleh seorang Software Engineer.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- === SEMUA JAVASCRIPT ADA DI SINI === -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            // --- Fungsi untuk Animasi Scroll ---
+            const revealElements = document.querySelectorAll('.reveal');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const revealOnScroll = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(revealOnScroll, observerOptions);
+            revealElements.forEach(element => {
+                observer.observe(element);
+            });
+
+            // --- Fungsi untuk Header Mengecil saat Scroll ---
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.style.padding = '0.5rem 0';
+                } else {
+                    header.style.padding = '1rem 0';
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
