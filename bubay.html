@@ -167,8 +167,11 @@
             font-size: 1.2rem;
             max-width: 650px;
             margin: 0 auto 40px;
-            font-weight: 300;
+            font-weight: 600;
             color: var(--text-color);
+            padding: 12px 22px;
+            border-radius: 18px;
+            display: inline-block;
         }
         .cta-button {
             background-color: var(--accent-color);
@@ -384,6 +387,11 @@
         .footer-column.contact i { margin-right: 12px; color: var(--accent-color); width: 20px; }
         .footer-column.contact a {
             color: var(--light-text-color);
+            text-decoration: none;
+            transition: color 0.2s, text-decoration 0.2s;
+        }
+        .footer-column.contact a:hover {
+            color: #d3c125;
             text-decoration: none;
         }
         .social-icons { margin-top: 20px; }
@@ -613,6 +621,16 @@
                 margin: 0 2px;
             }
         }
+        /* Hover khusus untuk link Zentrix di footer */
+        .footer-bottom a[href*="zentrix-kreasi"] {
+            color: #fff !important;
+            text-decoration: none !important;
+            transition: color 0.2s, text-decoration 0.2s;
+        }
+        .footer-bottom a[href*="zentrix-kreasi"]:hover {
+            color: #e5ce73 !important;
+            text-decoration: none !important;
+        }
     </style>
 </head>
 <body>
@@ -635,9 +653,9 @@
                     <li><a href="#kontak">Kontak</a></li>
                 </ul>
             </nav>
-            <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Menu">
-                <i class="fas fa-bars"></i>
-            </button>
+                <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
         </div>
         <div class="nav-overlay" id="nav-overlay"></div>
     </header>
@@ -647,6 +665,7 @@
             <div class="hero-content">
                 <h1 class="fade-in-element">Koleksi Rajutan Handmade, Cantik & Unik untuk Setiap Gaya!</h1>
                 <p class="fade-in-element">Temukan tas rajut, dompet, baju, dan Gantungan Kunci rajutan handmade berkualitas. Order mudah via WhatsApp, bisa custom nama & warna!</p>
+                <br>
                 <a href="#katalog" class="cta-button fade-in-element">Lihat Katalog Rajutan</a>
             </div>
         </section>
@@ -751,7 +770,7 @@
                         <div class="product-card-content">
                             <h4>Gantungan Kunci Rajut Bunga</h4>
                             <p class="price">Rp 99.000</p>
-                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Gantungan Kunci%20Rajut%20Bunga"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Gantungan%20Kunci%20Rajut%20Bunga"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
                         </div>
                     </div>
                     <!-- Produk 5 -->
@@ -852,8 +871,8 @@
                 </div>
                 <div class="footer-column contact fade-in-element">
                     <h4>Hubungi Kami</h4>
-                    <p><i class="fas fa-envelope"></i> info@BubayOlshop.com</p>
-                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/6283162534123" target="_blank">+62 831-6253-4123</a></p>
+                    <p><i class="fas fa-envelope" style="font-size: 1.4em;"></i> info@BubayOlshop.com</p>
+                    <p><i class="fab fa-whatsapp" style="font-size: 1.5em;"></i> <a href="https://wa.me/6283162534123" target="_blank">+62 831-6253-4123</a></p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -862,7 +881,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <a href="https://zentrix-kreasi.vercel.app" target="_blank" style="color:#fff; text-decoration:none;"><p>© 2025 Zentrix</p></a>
+                <a href="https://zentrix-kreasi.vercel.app" target="_blank"><p>© 2025 Zentrix</p></a>
             </div>
         </div>
     </footer>
@@ -954,7 +973,7 @@
                     heroSection.classList.add('fade-in');
                     setTimeout(() => heroSection.classList.remove('fade-in'), 600);
                 }, 600);
-            }, 4000);
+            }, 8000);
             // Animasi scroll
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
