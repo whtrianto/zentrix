@@ -631,6 +631,199 @@
             color: #e5ce73 !important;
             text-decoration: none !important;
         }
+        .product-modal {
+          display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.45); align-items: center; justify-content: center; transition: background 0.25s;
+        }
+        .product-modal.active { display: flex; animation: fadeInModal 0.25s; }
+        @keyframes fadeInModal { from { opacity: 0; } to { opacity: 1; } }
+        .product-modal-overlay { position: absolute; width: 100%; height: 100%; left: 0; top: 0; background: transparent; }
+        .product-modal-content {
+          position: relative;
+          background: #fff;
+          border-radius: 18px;
+          max-width: 370px;
+          width: 95vw;
+          margin: auto;
+          padding: 28px 20px 24px 20px;
+          box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          animation: popInModal 0.25s;
+        }
+        @keyframes popInModal { from { transform: scale(0.95); opacity: 0.7; } to { transform: scale(1); opacity: 1; } }
+        .product-modal-close {
+          position: absolute;
+          top: 12px;
+          right: 16px;
+          font-size: 2rem;
+          color: #2563eb;
+          cursor: pointer;
+          font-weight: bold;
+          z-index: 3;
+          background: #fff;
+          border-radius: 50%;
+          box-shadow: 0 2px 8px rgba(56,189,248,0.10);
+          padding: 0 8px;
+          border: 1.5px solid #e0e7ef;
+          transition: color 0.2s, transform 0.2s;
+        }
+        .product-modal-close:hover { color: #e11d48; transform: scale(1.15); }
+        #modal-product-img {
+          width: 100%;
+          max-width: 100%;
+          max-height: 320px;
+          display: block;
+          margin: 0 auto 18px auto;
+          border-radius: 12px;
+          box-shadow: 0 2px 12px rgba(56,189,248,0.10);
+          object-fit: contain;
+          background: #f4f8fb;
+        }
+        #modal-product-title {
+          text-align: center;
+          font-size: 1.18rem;
+          font-weight: 600;
+          color: #2563eb;
+          margin-bottom: 16px;
+          margin-top: 0;
+          letter-spacing: 0.01em;
+        }
+        #modal-product-wa {
+          display: inline-block;
+          background: #25d366;
+          color: #fff;
+          padding: 12px 32px;
+          border-radius: 8px;
+          font-weight: 600;
+          font-size: 1.08rem;
+          margin-top: 0;
+          box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+          transition: background 0.22s, color 0.22s, transform 0.18s;
+        }
+        #modal-product-wa:hover {
+          background: #128c7e;
+          color: #fff;
+          transform: translateY(-2px) scale(1.04);
+        }
+        @media (max-width: 600px) {
+          .product-modal-content { max-width: 98vw; padding: 12px 2vw 16px 2vw; }
+          #modal-product-img { max-height: 45vw; }
+          .product-modal-close { top: 6px; right: 6px; }
+        }
+        /* Icon view di dalam gambar, pojok kanan bawah */
+        .product-image-wrapper {
+          position: relative;
+        }
+        .view-product-btn {
+          position: absolute;
+          right: 10px;
+          bottom: 10px;
+          z-index: 2;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 32px;
+          height: 32px;
+          font-size: 1.15rem;
+          color: #2563eb;
+          background: rgba(255,255,255,0.92);
+          border-radius: 50%;
+          box-shadow: 0 2px 8px rgba(56,189,248,0.10);
+          transition: background 0.18s, color 0.18s, transform 0.18s;
+          border: 1.5px solid #e0e7ef;
+          opacity: 0.92;
+          text-decoration: none;
+        }
+        .view-product-btn:hover {
+          background: #2563eb;
+          color: #fff;
+          transform: scale(1.13);
+          opacity: 1;
+        }
+        /* Modal popup profesional */
+        .product-modal {
+          display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.45); align-items: center; justify-content: center; transition: background 0.25s;
+        }
+        .product-modal.active { display: flex; animation: fadeInModal 0.25s; }
+        @keyframes fadeInModal { from { opacity: 0; } to { opacity: 1; } }
+        .product-modal-overlay { position: absolute; width: 100%; height: 100%; left: 0; top: 0; background: transparent; }
+        .product-modal-content {
+          position: relative;
+          background: #fff;
+          border-radius: 18px;
+          max-width: 370px;
+          width: 95vw;
+          margin: auto;
+          padding: 28px 20px 24px 20px;
+          box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          animation: popInModal 0.25s;
+        }
+        @keyframes popInModal { from { transform: scale(0.95); opacity: 0.7; } to { transform: scale(1); opacity: 1; } }
+        .product-modal-close {
+          position: absolute;
+          top: 12px;
+          right: 16px;
+          font-size: 2rem;
+          color: #2563eb;
+          cursor: pointer;
+          font-weight: bold;
+          z-index: 3;
+          background: #fff;
+          border-radius: 50%;
+          box-shadow: 0 2px 8px rgba(56,189,248,0.10);
+          padding: 0 8px;
+          border: 1.5px solid #e0e7ef;
+          transition: color 0.2s, transform 0.2s;
+        }
+        .product-modal-close:hover { color: #e11d48; transform: scale(1.15); }
+        #modal-product-img {
+          width: 100%;
+          max-width: 100%;
+          max-height: 320px;
+          display: block;
+          margin: 0 auto 18px auto;
+          border-radius: 12px;
+          box-shadow: 0 2px 12px rgba(56,189,248,0.10);
+          object-fit: contain;
+          background: #f4f8fb;
+        }
+        #modal-product-title {
+          text-align: center;
+          font-size: 1.18rem;
+          font-weight: 600;
+          color: #2563eb;
+          margin-bottom: 16px;
+          margin-top: 0;
+          letter-spacing: 0.01em;
+        }
+        #modal-product-wa {
+          display: inline-block;
+          background: #25d366;
+          color: #fff;
+          padding: 12px 32px;
+          border-radius: 8px;
+          font-weight: 600;
+          font-size: 1.08rem;
+          margin-top: 0;
+          box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+          transition: background 0.22s, color 0.22s, transform 0.18s;
+        }
+        #modal-product-wa:hover {
+          background: #128c7e;
+          color: #fff;
+          transform: translateY(-2px) scale(1.04);
+        }
+        @media (max-width: 600px) {
+          .product-modal-content { max-width: 98vw; padding: 12px 2vw 16px 2vw; }
+          #modal-product-img { max-height: 45vw; }
+          .product-modal-close { top: 6px; right: 6px; }
+        }
     </style>
 </head>
 <body>
@@ -683,7 +876,7 @@
                         <h3>Dompet Rajut</h3>
                     </a>
                     <a href="#katalog" class="category-card fade-in-element">
-                        <img src="https://id-live-01.slatic.net/p/a5f2ff44c5a9af4b1e6d0e77be691e02.jpg" alt="Baju Rajut">
+                        <img src="assets/img-bubay/baju3.jpg" alt="Baju Rajut">
                         <h3>Baju Rajut</h3>
                     </a>
                     <a href="#katalog" class="category-card fade-in-element">
@@ -723,19 +916,19 @@
         </section>
         <!-- ======================= BEST SELLERS ======================= -->
         <section class="best-sellers" id="katalog">
-            <div class="container">
+            <div class="container" >
                 <h2 class="section-title fade-in-element">Produk Rajutan Terlaris</h2>
                 <div class="product-grid">
                     <!-- Produk 1 -->
-                    <div class="product-card fade-in-element">
+                    <div class="product-card fade-in-element" >
                         <span class="badge">Best Seller</span>
                         <div class="product-image">
-                           <img src="https://i.pinimg.com/236x/5f/0a/15/5f0a15db1ae5efb39ec992e4a5ee08c5.jpg" alt="Tas Rajut Daisy">
+                           <img src="assets/img-bubay/tas3.jpg" alt="Tas Rajut Daisy">
                         </div>
-                        <div class="product-card-content">
-                            <h4>Tas Rajut Daisy</h4>
-                            <p class="price">Rp 185.000</p>
-                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Tas%20Rajut%20Daisy"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Tas Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/tas3.jpg" data-product-title="Tas Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Tas%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Tas%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
                         </div>
                     </div>
                     <!-- Produk 2 -->
@@ -744,21 +937,22 @@
                         <div class="product-image">
                            <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98z-lugenc8n6wzt3a_tn.webp" alt="Dompet Rajut Pelangi">
                         </div>
-                        <div class="product-card-content">
+                        <div class="product-card-content" style="text-align: center;">
                             <h4>Dompet Rajut</h4>
-                            <p class="price">Rp 75.000</p>
+                            <a class="view-product-btn" href="#" data-product-img="https://down-id.img.susercontent.com/file/id-11134207-7r98z-lugenc8n6wzt3a_tn.webp" data-product-title="Dompet Rajut Pelangi" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut%20Pelangi" title="Lihat Detail"><i class="fas fa-eye"></i></a>
                             <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut%20Pelangi"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
                         </div>
                     </div>
                     <!-- Produk 3 -->
                     <div class="product-card fade-in-element">
+                        <span class="badge">Desain Terbaik</span>
                         <div class="product-image">
-                           <img src="https://id-live-01.slatic.net/p/a5f2ff44c5a9af4b1e6d0e77be691e02.jpg" alt="Sweater Rajut Pastel">
+                           <img src="assets/img-bubay/baju3.jpg" alt="Sweater Rajut Pastel">
                         </div>
-                        <div class="product-card-content">
-                            <h4>Sweater Rajut Pastel</h4>
-                            <p class="price">Rp 210.000</p>
-                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Sweater%20Rajut%20Pastel"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Baju Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/baju3.jpg" data-product-title="Baju Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Baju%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Baju%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
                         </div>
                     </div>
                     <!-- Produk 4 -->
@@ -767,21 +961,344 @@
                         <div class="product-image">
                            <img src="https://ae01.alicdn.com/kf/S3ffbb143179d44df8f91ec3c025f5a3c2.jpg_640x640q90.jpg" alt="Gantungan Kunci Rajut Bunga">
                         </div>
-                        <div class="product-card-content">
+                        <div class="product-card-content" style="text-align: center;">
                             <h4>Gantungan Kunci Rajut Bunga</h4>
-                            <p class="price">Rp 99.000</p>
+                            <a class="view-product-btn" href="#" data-product-img="https://ae01.alicdn.com/kf/S3ffbb143179d44df8f91ec3c025f5a3c2.jpg_640x640q90.jpg" data-product-title="Gantungan Kunci Rajut Bunga" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Gantungan%20Kunci%20Rajut%20Bunga" title="Lihat Detail"><i class="fas fa-eye"></i></a>
                             <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Gantungan%20Kunci%20Rajut%20Bunga"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
                         </div>
                     </div>
                     <!-- Produk 5 -->
                     <div class="product-card fade-in-element">
+                        <span class="badge">Karakter Lucu</span>
                         <div class="product-image">
                            <img src="https://down-id.img.susercontent.com/file/sg-11134201-7rbkg-lnnag10izzg137" alt="Gantungan Kunci Rajut Karakter">
                         </div>
-                        <div class="product-card-content">
+                        <div class="product-card-content" style="text-align: center;">
                             <h4>Gantungan Kunci Rajut Karakter</h4>
-                            <p class="price">Rp 35.000</p>
+                            <a class="view-product-btn" href="#" data-product-img="https://down-id.img.susercontent.com/file/sg-11134201-7rbkg-lnnag10izzg137" data-product-title="Gantungan Kunci Rajut Karakter" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Gantungan%20Kunci%20Rajut%20Karakter" title="Lihat Detail"><i class="fas fa-eye"></i></a>
                             <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Gantungan%20Kunci%20Rajut%20Karakter"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <span class="badge">Promo</span>
+                        <div class="product-image">
+                           <img src="assets/img-bubay/tisu5.jpg" alt="tisu">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Selimut Barang Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/tisu5.jpg" data-product-title="Selimut Barang Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Selimut%20Barang%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Selimut%20Barang%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/tas1.jpg" alt="tas">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Tas Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/tas1.jpg" data-product-title="Tas Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Tas%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Tas%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/tas2.jpg" alt="tas">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Tas Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/tas2.jpg" data-product-title="Tas Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Tas%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Tas%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/tas4.jpg" alt="tas">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Tas Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/tas4.jpg" data-product-title="Tas Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Tas%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Tas%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/tas5.jpg" alt="tas">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Tas Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/tas5.jpg" data-product-title="Tas Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Tas%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Tas%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/tas6.jpg" alt="tas">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Tas Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/tas6.jpg" data-product-title="Tas Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Tas%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Tas%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/tas7.jpg" alt="tas">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Tas Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/tas7.jpg" data-product-title="Tas Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Tas%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Tas%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/tas8.jpg" alt="tas">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Tas Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/tas8.jpg" data-product-title="Tas Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Tas%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Tas%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/tas9.jpg" alt="tas">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Tas Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/tas9.jpg" data-product-title="Tas Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Tas%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Tas%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/dompet1.jpg" alt="tas">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Dompet Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/dompet1.jpg" data-product-title="Dompet Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/dompet2.jpg" alt="tas">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Dompet Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/dompet2.jpg" data-product-title="Dompet Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/dompet3.jpg" alt="tas">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Dompet Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/dompet3.jpg" data-product-title="Dompet Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/dompet4.jpg" alt="tas">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Dompet Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/dompet4.jpg" data-product-title="Dompet Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/dompet5.jpg" alt="tas">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Dompet Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/dompet5.jpg" data-product-title="Dompet Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/dompet6.jpg" alt="tas">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Dompet Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/dompet6.jpg" data-product-title="Dompet Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/dompet7.jpg" alt="tas">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Dompet Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/dompet7.jpg" data-product-title="Dompet Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/dompet8.jpg" alt="tas">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Dompet Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/dompet8.jpg" data-product-title="Dompet Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/dompet9.jpg" alt="tas">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Dompet Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/dompet9.jpg" data-product-title="Dompet Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/dompet10.jpg" alt="tas">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Dompet Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/dompet10.jpg" data-product-title="Dompet Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/dompet11.jpg" alt="tas">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Dompet Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/dompet11.jpg" data-product-title="Dompet Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Dompet%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/baju1.jpg" alt="baju">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Baju Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/baju1.jpg" data-product-title="Baju Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Baju%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Baju%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/baju2.jpg" alt="baju">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Baju Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/baju2.jpg" data-product-title="Baju Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Baju%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Baju%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/gan1.jpg" alt="gantungan">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Gantungan Kunci Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/gan1.jpg" data-product-title="Gantungan Kunci Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Gantungan%20Kunci%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Gantungan%20Kunci%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/tisu1.jpg" alt="tisu">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Selimut Barang Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/tisu1.jpg" data-product-title="Selimut Barang Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Selimut%20Barang%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Selimut%20Barang%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/tisu2.jpg" alt="tisu">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Selimut Barang Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/tisu2.jpg" data-product-title="Selimut Barang Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Selimut%20Barang%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Selimut%20Barang%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/tisu3.jpg" alt="tisu">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Selimut Barang Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/tisu3.jpg" data-product-title="Selimut Barang Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Selimut%20Barang%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Selimut%20Barang%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/tisu4.jpg" alt="tisu">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Selimut Barang Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/tisu4.jpg" data-product-title="Selimut Barang Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Selimut%20Barang%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Selimut%20Barang%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/tisu6.jpg" alt="tisu">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Selimut Barang Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/tisu6.jpg" data-product-title="Selimut Barang Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Selimut%20Barang%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Selimut%20Barang%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/tisu7.jpg" alt="tisu">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Selimut Barang Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/tisu7.jpg" data-product-title="Selimut Barang Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Selimut%20Barang%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Selimut%20Barang%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/tisu8.jpg" alt="tisu">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Selimut Barang Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/tisu8.jpg" data-product-title="Selimut Barang Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Selimut%20Barang%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Selimut%20Barang%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/tisu9.jpg" alt="tisu">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Selimut Barang Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/tisu9.jpg" data-product-title="Selimut Barang Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Selimut%20Barang%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Selimut%20Barang%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="product-card fade-in-element">
+                        <div class="product-image">
+                           <img src="assets/img-bubay/tisu10.jpg" alt="tas">
+                        </div>  
+                        <div class="product-card-content" style="text-align: center;">
+                            <h4>Tas Rajut</h4>
+                            <a class="view-product-btn" href="#" data-product-img="assets/img-bubay/tisu10.jpg" data-product-title="Tas Rajut" data-product-wa="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Tas%20Rajut" title="Lihat Detail"><i class="fas fa-eye"></i></a>
+                            <a class="btn-wa" target="_blank" href="https://wa.me/6283162534123?text=Halo%20Kak,%20saya%20mau%20order%20Tas%20Rajut"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
                         </div>
                     </div>
                 </div>
@@ -885,6 +1402,18 @@
             </div>
         </div>
     </footer>
+    <!-- Tambahkan modal popup detail produk di akhir body -->
+    <div id="product-modal" class="product-modal">
+      <div class="product-modal-overlay"></div>
+      <div class="product-modal-content">
+        <span class="product-modal-close">&times;</span>
+        <img id="modal-product-img" src="" alt="Produk" style="width:100%;max-width:500px;display:block;margin:0 auto 20px auto;object-fit:contain;">
+        <h3 id="modal-product-title" style="text-align:center;"></h3>
+        <div style="text-align:center;margin-top:20px;">
+          <a id="modal-product-wa" class="btn-wa" target="_blank" href="#"><i class="fab fa-whatsapp wa-ic"></i>Beli via WhatsApp</a>
+        </div>
+      </div>
+    </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const header = document.getElementById('main-header');
@@ -987,6 +1516,21 @@
             const elementsToAnimate = document.querySelectorAll('.fade-in-element');
             elementsToAnimate.forEach((el) => observer.observe(el));
         });
+        document.querySelectorAll('.view-product-btn').forEach(function(btn) {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('modal-product-img').src = btn.getAttribute('data-product-img');
+            document.getElementById('modal-product-title').textContent = btn.getAttribute('data-product-title');
+            document.getElementById('modal-product-wa').href = btn.getAttribute('data-product-wa');
+            document.getElementById('product-modal').classList.add('active');
+          });
+        });
+        document.querySelector('.product-modal-close').onclick = function() {
+          document.getElementById('product-modal').classList.remove('active');
+        };
+        document.querySelector('.product-modal-overlay').onclick = function() {
+          document.getElementById('product-modal').classList.remove('active');
+        };
     </script>
 </body>
 </html>
