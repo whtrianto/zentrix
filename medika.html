@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klinik Qiana Medika - Profesional & Terpercaya di Cirebon</title>
+    
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS (Styling & Responsive Design) */
+        
+        /* === 1. Global Variables & Reset === */
+        :root {
+            --primary-color: #00897B; /* Teal from design */
+            --secondary-color: #00695C;
+            --accent-color: #ffc107; /* Yellow/Gold from logo */
+            --text-dark: #212121;
+            --text-light: #ffffff;
+            --bg-light: #f8f9fa;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--text-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: var(--bg-light);
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+        }
+
+        /* === 2. Animated Background === */
+        .animation-area {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .plus-box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .plus-box li {
+            position: absolute;
+            list-style: none;
+            display: block;
+            width: 25px;
+            height: 25px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            animation: animate-plus 25s linear infinite;
+            bottom: -150px;
+            opacity: 0;
+        }
+        
+        .plus-box li:nth-child(1) { left: 25%; animation-delay: 0s; }
+        .plus-box li:nth-child(2) { left: 10%; animation-delay: 2s; animation-duration: 12s; font-size: 3rem; }
+        .plus-box li:nth-child(3) { left: 70%; animation-delay: 4s; }
+        .plus-box li:nth-child(4) { left: 40%; animation-delay: 0s; animation-duration: 18s; font-size: 1.5rem; }
+        .plus-box li:nth-child(5) { left: 65%; animation-delay: 0s; animation-duration: 20s; }
+        .plus-box li:nth-child(6) { left: 75%; animation-delay: 3s; }
+        .plus-box li:nth-child(7) { left: 35%; animation-delay: 7s; }
+        .plus-box li:nth-child(8) { left: 50%; animation-delay: 15s; animation-duration: 45s; }
+        .plus-box li:nth-child(9) { left: 20%; animation-delay: 2s; animation-duration: 35s; font-size: 2.5rem; }
+        .plus-box li:nth-child(10){ left: 85%; animation-delay: 0s; animation-duration: 11s; }
+
+        @keyframes animate-plus {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.15; }
+            100% { transform: translateY(-120vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* === 3. Header & Navigation === */
+        .header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo svg {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .main-nav {
+            display: flex;
+            list-style: none;
+        }
+
+        .main-nav li {
+            margin-left: 35px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .mobile-menu-toggle svg {
+            width: 30px;
+            height: 30px;
+            color: var(--primary-color);
+        }
+        
+        .cta-button {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 137, 123, 0.2);
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        /* === 4. Hero Section === */
+        .hero {
+            min-height: calc(100vh - 71px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+        
+        .hero-content h1 .highlight {
+            color: var(--primary-color);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #555;
+        }
+        
+        /* === 5. Content Sections (Generic) === */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+            align-items: center;
+        }
+
+        /* === About Section === */
+        #tentang p {
+            margin-bottom: 15px;
+        }
+        .vision-mission h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+        }
+        .vision-mission ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+        .vision-mission li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .vision-mission li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: -20px;
+        }
+
+        /* === Services Section === */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .service-card {
+            background: var(--text-light);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .service-card .icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        .schedule-info {
+            margin-top: 50px;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .schedule-info p {
+            margin: 5px 0;
+            font-weight: 600;
+        }
+        
+        /* === Patient Flow Section === */
+        .flow-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .flow-step, .flow-choice {
+            padding: 15px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .flow-arrow {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        .flow-branch {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .flow-branch .branch-item {
+            flex-basis: 45%;
+        }
+        .flow-branch .branch-item .flow-step {
+            width: 100%;
+            background-color: var(--secondary-color);
+        }
+        .flow-branch .branch-item ul {
+            list-style-type: '✓  ';
+            text-align: left;
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        .flow-choice-horizontal {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            gap: 20px;
+        }
+        .flow-choice-horizontal .flow-step {
+            flex: 1;
+        }
+
+        /* === Team Section === */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .team-card {
+            background: var(--bg-light);
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .team-card:hover {
+             transform: scale(1.05);
+        }
+        .team-card h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin: 10px 0 5px 0;
+        }
+        .team-card p {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 600;
+        }
+        .org-structure {
+            border: 2px solid var(--primary-color);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        /* === Facilities Section === */
+        .facility-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .facility-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .facility-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .facility-item:hover img {
+            transform: scale(1.1);
+        }
+        .facility-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: var(--text-light);
+            padding: 30px 20px 15px 20px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        
+        /* === Contact Section === */
+        #kontak .grid-2 {
+            gap: 40px;
+        }
+        .contact-info p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        .contact-info strong {
+            color: var(--primary-color);
+        }
+        .contact-info a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-info a:hover {
+            color: var(--primary-color);
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+            border-radius: 10px;
+        }
+
+        /* === 6. Footer === */
+        .footer {
+            background: var(--text-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 20px 0;
+        }
+        .footer p {
+            margin: 0;
+        }
+        .footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        /* === 7. Helper & Animation Classes === */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* === 8. Responsive Design === */
+        @media (max-width: 992px) {
+            h2 { font-size: 2.2rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+            #tentang .grid-2 > div:first-child { margin-bottom: 30px; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .facility-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-content h1 { font-size: 2.8rem; }
+        }
+        
+        @media (max-width: 768px) {
+            /* Mobile Navigation */
+            .main-nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 71px; /* Header height */
+                left: 0;
+                width: 100%;
+                background: white;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .main-nav.active {
+                display: flex;
+            }
+            .main-nav li {
+                margin: 0;
+                width: 100%;
+            }
+            .main-nav a {
+                display: block;
+                padding: 15px 20px;
+                text-align: center;
+                border-bottom: 1px solid #eee;
+            }
+            .main-nav a::after { display: none; }
+            
+            .mobile-menu-toggle { display: block; }
+            .cta-button { display: none; } /* Hide button in nav bar, put it in menu instead if needed */
+            
+            .services-grid { grid-template-columns: 1fr; }
+            .facility-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero-content p { font-size: 1rem; }
+            .flow-branch, .flow-choice-horizontal { flex-direction: column; align-items: center; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Latar Belakang Animasi -->
+    <div class="animation-area">
+        <ul class="plus-box">
+            <li>+</li> <li>+</li> <li>+</li> <li>+</li> <li>+</li>
+            <li>+</li> <li>+</li> <li>+</li> <li>+</li> <li>+</li>
+        </ul>
+    </div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="#beranda" class="logo">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 0V20H30V0H50Z" fill="#00897B"/>
+                    <path d="M100 30V50H80V30H100Z" fill="#00897B"/>
+                    <path d="M50 100V80H70V100H50Z" fill="#00897B"/>
+                    <path d="M0 50V70H20V50H0Z" fill="#00897B"/>
+                    <path d="M50,30 C61.045695,30 70,38.954305 70,50 C70,61.045695 61.045695,70 50,70 C38.954305,70 30,61.045695 30,50 C30,38.954305 38.954305,30 50,30 Z" fill="#ffc107"/>
+                    <path d="M54.12,58.85 C52.12,60.85 49.33,61.42 46.85,60.54 C44.37,59.66 42.66,57.48 42.34,54.91 C42.02,52.34 43.15,49.9 45.24,48.44 C47.34,46.99 49.97,46.81 52.15,47.93 L54,43 C49.5,-40 43,-41 40,47 C37,53 42,59 47.5,60 C53,61 59,57 58,52 Z" fill="#fff"/>
+                </svg>
+                Qiana Medika
+            </a>
+            <nav>
+                <ul class="main-nav" id="main-nav">
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#tentang">Tentang Kami</a></li>
+                    <li><a href="#layanan">Layanan</a></li>
+                    <li><a href="#tim">Tim Kami</a></li>
+                    <li><a href="#fasilitas">Fasilitas</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </nav>
+            <a href="https://wa.me/6285713006515?text=Halo%2C%20saya%20ingin%20membuat%20janji%20temu." target="_blank" class="cta-button">Buat Janji Temu</a>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Buka menu">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path></svg>
+            </button>
+        </div>
+    </header>
+    
+    <main>
+
+        <!-- Beranda (Hero) Section -->
+        <section id="beranda" class="hero">
+            <div class="container hero-content fade-in">
+                <h1>Berkah dalam Setiap Layanan, <span class="highlight">Sehat dalam Setiap Langkah</span></h1>
+                <p>Klinik pratama terpercaya di Cirebon yang menyediakan pelayanan kesehatan berkualitas, mudah diakses, dan terjangkau untuk Anda dan keluarga.</p>
+                <a href="#layanan" class="cta-button">Jelajahi Layanan Kami</a>
+            </div>
+        </section>
+
+        <!-- Tentang Kami Section -->
+        <section id="tentang">
+            <div class="container fade-in">
+                <h2>Selamat Datang di Klinik Qiana Medika</h2>
+                <div class="grid-2">
+                    <div class="about-text">
+                        <p><strong>Klinik Qiana Medika</strong> adalah klinik umum yang didirikan oleh dr. Eko Ferdiansyah Surya Aji & apt. Suci Aprianti, S.Farm pada tanggal 05 Juni 2018. Terletak di lokasi strategis di Jalan H. Resi, Keduanan, Cirebon, kami berdedikasi untuk meningkatkan kualitas pelayanan kesehatan bagi masyarakat luas.</p>
+                        <p>Pada tahun 2025, kami akan menjadi bagian dari unit bisnis PT. Qiana Medika Amerta, sebagai wujud komitmen kami untuk terus berkembang dan memberikan yang terbaik.</p>
+                    </div>
+                    <div class="vision-mission">
+                        <h3>Visi Kami</h3>
+                        <p>Terwujudnya klinik yang berkualitas, mudah diakses, dan terjangkau dalam memberikan pelayanan kesehatan yang bermanfaat sebesar-besarnya bagi masyarakat.</p>
+                        <h3>Misi Kami</h3>
+                        <ul>
+                            <li>Menyelenggarakan pelayanan kesehatan dasar berkualitas.</li>
+                            <li>Memberikan pelayanan yang aman, tepat, cepat, dan nyaman.</li>
+                            <li>Mengutamakan kepuasan pasien dengan layanan ramah dan profesional.</li>
+                            <li>Berlandaskan nilai-nilai keagamaan dan sosial dalam melayani.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Layanan Section -->
+        <section id="layanan">
+            <div class="container fade-in">
+                <h2>Layanan Unggulan Kami</h2>
+                <div class="services-grid">
+                    <div class="service-card"><div class="icon">🩺</div><h3>Pemeriksaan Dokter Umum</h3><p>Konsultasi dan penanganan medis oleh dokter profesional.</p></div>
+                    <div class="service-card"><div class="icon">🩸</div><h3>Laboratorium</h3><p>Uji laboratorium untuk menunjang diagnosa yang akurat.</p></div>
+                    <div class="service-card"><div class="icon">📋</div><h3>Medical Check Up</h3><p>Paket pemeriksaan kesehatan menyeluruh.</p></div>
+                    <div class="service-card"><div class="icon">💉</div><h3>Klinik Vaksin</h3><p>Layanan vaksinasi untuk pencegahan penyakit.</p></div>
+                    <div class="service-card"><div class="icon">✂️</div><h3>Khitan</h3><p>Layanan sirkumsisi modern dan aman.</p></div>
+                    <div class="service-card"><div class="icon">💊</div><h3>Pelayanan Kefarmasian</h3><p>Penyediaan obat-obatan berkualitas dan terjamin.</p></div>
+                </div>
+                <div class="schedule-info">
+                    <h3>Jam Operasional Dokter Umum</h3>
+                    <p>Buka Setiap Hari: 07.00 – 21.00 WIB</p>
+                    <p><strong>Shift Pagi:</strong> 07.00 – 14.00 (Istirahat 12.00 – 12.45)</p>
+                    <p><strong>Shift Siang:</strong> 14.00 – 21.00 (Istirahat 18.00 – 18.45)</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Alur Pelayanan Section -->
+        <section id="alur">
+            <div class="container fade-in">
+                <h2>Alur Pelayanan Pasien</h2>
+                <div class="flow-container">
+                    <div class="flow-step">Pasien Datang</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step">Ambil Nomor Antrian</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-branch">
+                        <div class="branch-item">
+                            <div class="flow-step">Pasien Baru</div>
+                            <ul>
+                                <li>Menyerahkan KTP</li>
+                                <li>Mengisi Form Biodata</li>
+                            </ul>
+                        </div>
+                        <div class="branch-item">
+                            <div class="flow-step">Pasien Lama</div>
+                            <ul>
+                                <li>Menyerahkan Kartu Kontrol</li>
+                                <li>Konfirmasi KTP</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step">Ruang Pemeriksaan Dokter</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-choice-horizontal">
+                         <div class="flow-step">Penunjang (Lab, dll)</div>
+                         <div class="flow-step">Rujuk</div>
+                    </div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step">Ruang Farmasi & Pembayaran</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step">Pasien Pulang</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tim Kami Section -->
+        <section id="tim">
+            <div class="container fade-in">
+                <h2>Temui Tim Profesional Kami</h2>
+                <p style="text-align: center; max-width: 700px; margin: -30px auto 50px auto;">Kami didukung oleh tim yang berdedikasi tinggi dan berpengalaman di bidangnya untuk memastikan Anda mendapatkan pelayanan terbaik.</p>
+                <div class="team-grid org-structure">
+                    <div class="team-card">
+                        <h3>dr. Eko Ferdiansyah Surya Aji</h3>
+                        <p>DIREKTUR</p>
+                    </div>
+                    <div class="team-card">
+                        <h3>apt. Suci Aprianti, S.Farm</h3>
+                        <p>WADIR / KEPALA FARMASI</p>
+                    </div>
+                     <div class="team-card">
+                        <h3>Eva Priyanti, S.Ars, MT</h3>
+                        <p>MANAGER UMUM</p>
+                    </div>
+                    <div class="team-card">
+                        <h3>Dr. Ayatullah</h3>
+                        <p>DOKTER UMUM</p>
+                    </div>
+                    <div class="team-card">
+                        <h3>Dewi Mukhibah</h3>
+                        <p>ASISTEN APOTEKER</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Fasilitas Section -->
+        <section id="fasilitas">
+            <div class="container fade-in">
+                <h2>Fasilitas Modern & Nyaman</h2>
+                <div class="facility-grid">
+                    <div class="facility-item">
+                        <img src="https://i.ibb.co/L5QhB97/fasilitas-1.jpg" alt="Ruang Tunggu dan Farmasi">
+                        <div class="facility-caption">Ruang Tunggu & Instalasi Farmasi</div>
+                    </div>
+                    <div class="facility-item">
+                        <img src="https://i.ibb.co/hL4gYxQ/fasilitas-2.jpg" alt="Ruang Praktek Dokter">
+                        <div class="facility-caption">Ruang Praktek Dokter</div>
+                    </div>
+                    <div class="facility-item">
+                        <img src="https://i.ibb.co/tZ5T8Wp/fasilitas-3.jpg" alt="Ruang Tindakan">
+                        <div class="facility-caption">Ruang Tindakan</div>
+                    </div>
+                    <div class="facility-item">
+                        <img src="https://i.ibb.co/rwxX92Q/fasilitas-4.jpg" alt="Playground dan Ruang ASI">
+                        <div class="facility-caption">Playground & Ruang ASI</div>
+                    </div>
+                    <div class="facility-item">
+                        <img src="https://i.ibb.co/Lnj02C0/fasilitas-5.jpg" alt="Toilet Bersih">
+                        <div class="facility-caption">Toilet Bersih (Pria & Wanita)</div>
+                    </div>
+                     <div class="facility-item">
+                        <img src="https://i.ibb.co/zH9D6gY/fasilitas-6.jpg" alt="Peralatan Medis">
+                        <div class="facility-caption">Peralatan Medis Lengkap</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Kontak Section -->
+        <section id="kontak">
+            <div class="container fade-in">
+                <h2>Hubungi Kami</h2>
+                <div class="grid-2">
+                    <div class="contact-info">
+                        <h3>Informasi & Lokasi</h3>
+                        <p><strong>Alamat:</strong><br> <a href="https://maps.app.goo.gl/B46a1g9rC37L5j987" target="_blank">Jalan H. Resi Blok Desa Keduanan No.24, Kecamatan Depok, Kabupaten Cirebon.</a></p>
+                        <p><strong>Telepon / WhatsApp:</strong><br> <a href="https://wa.me/6285713006515">0857 1300 6515</a></p>
+                        <p><strong>Jam Operasional:</strong><br>Setiap Hari: 07.00 – 21.00 WIB</p>
+                        <p>Kami melayani pasien umum dan pengguna asuransi kesehatan yang bekerjasama.</p>
+                    </div>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.333060592931!2d108.51323867499484!3d-6.729110093264426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f1d8564f21e5b%3A0xb35a90d8a572a11b!2sKlinik%20Qiana%20Medika!5e0!3m2!1sen!2sid!4v1700000000000" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem;flex-direction:column;">
+                <div style="font-size:1.1rem;font-weight:600;margin-bottom:0.5rem;">
+                    © 2025 <a href="#" target="_blank" style="color:#10bca8;text-decoration:none;font-weight:700;">Qiana Medika</a>
+                </div>
+                <div style="font-size:1.05rem;color:#fff;margin-bottom:0.5rem;">"Berkah dalam Setiap Layanan, Sehat dalam Setiap Langkah"</div>
+                <div class="footer-sosmed" style="display:flex;gap:1.2rem;justify-content:center;align-items:center;">
+                    <a href="https://instagram.com/zentrixkreasi" target="_blank" aria-label="Instagram" style="color:#fff;background:var(--primary-color);width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:1.3rem;transition:background 0.2s;box-shadow:0 2px 8px rgba(0,137,123,0.10);"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/6289666077720" target="_blank" aria-label="WhatsApp" style="color:#fff;background:var(--secondary-color);width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:1.3rem;transition:background 0.2s;box-shadow:0 2px 8px rgba(0,105,92,0.10);"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:zentrixkreasi@gmail.com" aria-label="Email" style="color:#fff;background:var(--primary-color);width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:1.3rem;transition:background 0.2s;box-shadow:0 2px 8px rgba(0,137,123,0.10);"><i class="fas fa-envelope"></i></a>
+                </div>
+                <div style="font-size:0.98rem;color:#bbb;margin-top:0.7rem;">Powered by <a href="https://zentrix-kreasi.vercel.app/" target="_blank" style="color:#10bca8;text-decoration:none;font-weight:600;">Zentrix Kreasi</a></div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+    // JavaScript (Interactivity)
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // --- 1. Mobile Menu Toggle ---
+        const menuToggle = document.getElementById('mobile-menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+        
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+
+        // --- 2. Close mobile menu when a link is clicked ---
+        const navLinks = document.querySelectorAll('#main-nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                }
+            });
+        });
+
+        // --- 3. Fade-in on Scroll Animation ---
+        const faders = document.querySelectorAll('.fade-in');
+
+        const appearOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px" // Trigger a bit earlier
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(
+            entries,
+            appearOnScroll
+        ) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('visible');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+
+    });
+    </script>
+</body>
+</html>
