@@ -91,14 +91,38 @@
             position: absolute;
             list-style: none;
             display: block;
-            width: 25px;
-            height: 25px;
-            font-size: 2rem;
+            width: 32px;
+            height: 32px;
+            font-size: 2.2rem;
             font-weight: bold;
             color: var(--primary-color);
             animation: animate-plus 25s linear infinite;
             bottom: -150px;
-            opacity: 0;
+            opacity: 0.22;
+            filter: drop-shadow(0 2px 8px rgba(0,137,123,0.18));
+            transition: color 0.3s, filter 0.3s;
+        }
+        .plus-box li:nth-child(2n) {
+            color: var(--accent-color);
+            opacity: 0.18;
+            font-size: 2.7rem;
+            filter: drop-shadow(0 4px 12px rgba(255,193,7,0.13));
+        }
+        .plus-box li:nth-child(3n) {
+            color: var(--secondary-color);
+            opacity: 0.16;
+            font-size: 2.4rem;
+            filter: drop-shadow(0 2px 10px rgba(0,105,92,0.13));
+        }
+        .plus-box li:nth-child(5n) {
+            color: #fff;
+            opacity: 0.13;
+            font-size: 3.1rem;
+            filter: drop-shadow(0 6px 16px rgba(0,137,123,0.10));
+        }
+        .plus-box li:hover {
+            opacity: 0.5;
+            filter: drop-shadow(0 2px 12px rgba(0,137,123,0.22));
         }
         
         .plus-box li:nth-child(1) { left: 25%; animation-delay: 0s; }
