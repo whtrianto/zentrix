@@ -591,6 +591,7 @@
             </div>
         </section>
 
+
         <!-- Tentang Kami Section -->
         <section id="tentang">
             <div class="container fade-in">
@@ -797,6 +798,27 @@
                         <img src="https://marketplace.canva.com/EAGEm0MnoAU/1/0/1131w/canva-merah-dan-hijau-ilustrasi-gizi-seimbang-untuk-hidup-sehat-poster-9eJNKG90kmE.jpg" alt="Infografis Pola Hidup Sehat" style="width:100%;max-width:340px;border-radius:8px;box-shadow:0 2px 8px rgba(0,137,123,0.10);margin-bottom:10px;" loading="lazy">
                         <p style="font-size:0.98rem;text-align:center;">Sederet tips pola hidup sehat: makan bergizi, olahraga, tidur cukup, dan kelola stres.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Kalkulator BMI Section -->
+        <section id="kalkulator-bmi">
+            <div class="container fade-in">
+                <h2 style="margin-bottom:30px;">Cek BMI (Body Mass Index) Anda</h2>
+                <div style="max-width:420px;margin:0 auto;background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(0,137,123,0.08);padding:28px 22px 22px 22px;">
+                    <form id="bmiForm" style="display:flex;flex-direction:column;gap:18px;">
+                        <div>
+                            <label for="bmiBerat" style="font-weight:600;color:var(--primary-color);">Berat Badan (kg):</label>
+                            <input type="number" id="bmiBerat" min="1" max="300" required style="width:100%;padding:8px 10px;border-radius:6px;border:1px solid #ccc;margin-top:6px;">
+                        </div>
+                        <div>
+                            <label for="bmiTinggi" style="font-weight:600;color:var(--primary-color);">Tinggi Badan (cm):</label>
+                            <input type="number" id="bmiTinggi" min="50" max="250" required style="width:100%;padding:8px 10px;border-radius:6px;border:1px solid #ccc;margin-top:6px;">
+                        </div>
+                        <button type="submit" style="background:var(--primary-color);color:#fff;font-weight:600;padding:10px 0;border:none;border-radius:6px;font-size:1.08rem;cursor:pointer;transition:background 0.2s;">Hitung BMI</button>
+                    </form>
+                    <div id="bmiHasil" style="margin-top:20px;font-size:1.08rem;font-weight:600;text-align:center;color:var(--secondary-color);"></div>
                 </div>
             </div>
         </section>
@@ -1008,6 +1030,23 @@
                 document.body.style.overflow = '';
             }
         });
+        // --- 5. Kalkulator BMI ---
+        const bmiForm = document.getElementById('bmiForm');
+        if (bmiForm) {
+            bmiForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const berat = parseFloat(document.getElementById('bmiBerat').value);
+                const tinggi = parseFloat(document.getElementById('bmiTinggi').value) / 100;
+                if (!berat || !tinggi || tinggi <= 0) return;
+                const bmi = berat / (tinggi * tinggi);
+                let kategori = '';
+                if (bmi < 18.5) kategori = 'Kurus';
+                else if (bmi < 23) kategori = 'Normal';
+                else if (bmi < 27) kategori = 'Overweight';
+                else kategori = 'Obesitas';
+                document.getElementById('bmiHasil').innerHTML = `BMI Anda: <span style='color:var(--primary-color);'>${bmi.toFixed(1)}</span><br>Status: <b>${kategori}</b>`;
+            });
+        }
     });
     </script>
 </body>
