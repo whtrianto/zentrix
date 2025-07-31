@@ -540,7 +540,8 @@
             .facility-grid { grid-template-columns: 1fr; }
             .hero-content h1 { font-size: 2.2rem; }
             .hero-content p { font-size: 1rem; }
-            .flow-branch, .flow-choice-horizontal { flex-direction: column; align-items: center; }
+            .flow-choice-horizontal { flex-direction: column; align-items: center; }
+            /* .flow-branch sengaja tidak diubah agar tetap bercabang (horizontal) di mobile */
         }
 
     </style>
@@ -559,14 +560,7 @@
     <header class="header">
         <div class="container">
             <a href="#beranda" class="logo">
-                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M50 0V20H30V0H50Z" fill="#00897B"/>
-                    <path d="M100 30V50H80V30H100Z" fill="#ffc107"/>
-                    <path d="M50 100V80H70V100H50Z" fill="#ffc107"/>
-                    <path d="M0 50V70H20V50H0Z" fill="#00897B"/>
-                    <path d="M50,30 C61.045695,30 70,38.954305 70,50 C70,61.045695 61.045695,70 50,70 C38.954305,70 30,61.045695 30,50 C30,38.954305 38.954305,30 50,30 Z" fill="#ffc107"/>
-                    <path d="M54.12,58.85 C52.12,60.85 49.33,61.42 46.85,60.54 C44.37,59.66 42.66,57.48 42.34,54.91 C42.02,52.34 43.15,49.9 45.24,48.44 C47.34,46.99 49.97,46.81 52.15,47.93 L54,43 C49.5,-40 43,-41 40,47 C37,53 42,59 47.5,60 C53,61 59,57 58,52 Z" fill="#fff"/>
-                </svg>
+                <img src="assets/imgmedika/logo.jpg" alt="Logo Qiana Medika" style="height:40px;margin-right:10px;vertical-align:middle;">
                 Qiana Medika
             </a>
             <nav>
@@ -604,7 +598,7 @@
                 <div class="grid-2">
                     <div class="about-text">
                         <p><strong>Klinik Qiana Medika</strong> adalah klinik umum yang didirikan oleh dr. Eko Ferdiansyah Surya Aji & apt. Suci Aprianti, S.Farm pada tanggal 05 Juni 2018. Terletak di lokasi strategis di Jalan H. Resi, Keduanan, Cirebon, kami berdedikasi untuk meningkatkan kualitas pelayanan kesehatan bagi masyarakat luas.</p>
-                        <p>Pada tahun 2025, kami akan menjadi bagian dari unit bisnis PT. Qiana Medika Amerta, sebagai wujud komitmen kami untuk terus berkembang dan memberikan yang terbaik.</p>
+                        <p>Pada tahun 2025, kami menjadi bagian dari unit bisnis PT. Qiana Medika Amerta, sebagai wujud komitmen kami untuk terus berkembang dan memberikan yang terbaik.</p>
                     </div>
                     <div class="vision-mission">
                         <h3>Visi Kami</h3>
@@ -645,7 +639,7 @@
         </section>
         
         <!-- Alur Pelayanan Section -->
-        <section id="alur">
+        <!-- <section id="alur">
             <div class="container fade-in">
                 <h2>Alur Pelayanan Pasien</h2>
                 <div class="flow-container">
@@ -674,9 +668,13 @@
                     <div class="flow-arrow">↓</div>
                     <div class="flow-step">Ruang Pemeriksaan Dokter</div>
                     <div class="flow-arrow">↓</div>
-                    <div class="flow-choice-horizontal">
-                         <div class="flow-step">Penunjang (Lab, dll)</div>
-                         <div class="flow-step">Rujuk</div>
+                    <div class="flow-branch">
+                        <div class="branch-item">
+                            <div class="flow-step">Penunjang (Lab, dll)</div>
+                        </div>
+                        <div class="branch-item">
+                            <div class="flow-step">Rujuk</div>
+                        </div>
                     </div>
                     <div class="flow-arrow">↓</div>
                     <div class="flow-step">Ruang Farmasi & Pembayaran</div>
@@ -684,7 +682,7 @@
                     <div class="flow-step">Pasien Pulang</div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- Tim Kami Section -->
         <section id="tim">
@@ -705,7 +703,7 @@
                         <p>MANAGER UMUM</p>
                     </div>
                     <div class="team-card">
-                        <h3>Dr. Ayatullah</h3>
+                        <h3>dr. Ayatullah</h3>
                         <p>DOKTER UMUM</p>
                     </div>
                     <div class="team-card">
