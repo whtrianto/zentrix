@@ -7,8 +7,45 @@
     
     <!-- Deskripsi untuk SEO -->
     <meta name="description" content="Zentrix menyediakan jasa pembuatan website profesional untuk profil perusahaan, toko online, website custom, landing page, dan sistem informasi. Wujudkan ide digital Anda bersama kami.">
-    <meta name="keywords" content="Zentrix, jasa website, buat website, website custom, website murah, website profesional, toko online, website pernikahan, company profile">
+    <meta name="keywords" content="Zentrix, jasa website, buat website, website custom, website murah, website profesional, toko online, website pernikahan, company profile, web developer jakarta, jasa pembuatan website banjarnegara, jasa landing page, jasa web murah, jasa web UMKM, jasa web bisnis, jasa web event, jasa web klinik, jasa web kolam renang, jasa web sekolah, jasa web organisasi, jasa web donasi, jasa web portofolio, jasa web personal branding">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://zentrix-kreasi.vercel.app/">
     <link rel="icon" href="assets/img/logo3.png">
+
+    <!-- Open Graph untuk Facebook & WhatsApp -->
+    <meta property="og:title" content="Zentrix | Jasa Pembuatan Website Profesional & Custom" />
+    <meta property="og:description" content="Jasa pembuatan website profesional, landing page, toko online, dan custom system. Tim berpengalaman, harga terjangkau, support penuh!" />
+    <meta property="og:image" content="https://zentrix-kreasi.vercel.app/assets/img/logo1.png" />
+    <meta property="og:url" content="https://zentrix-kreasi.vercel.app/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Zentrix | Jasa Pembuatan Website Profesional & Custom" />
+    <meta name="twitter:description" content="Jasa pembuatan website profesional, landing page, toko online, dan custom system. Tim berpengalaman, harga terjangkau, support penuh!" />
+    <meta name="twitter:image" content="https://zentrix-kreasi.vercel.app/assets/img/logo1.png" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Zentrix Kreasi",
+      "url": "https://zentrix-kreasi.vercel.app/",
+      "logo": "https://zentrix-kreasi.vercel.app/assets/img/logo1.png",
+      "description": "Jasa pembuatan website profesional, landing page, toko online, dan custom system. Tim berpengalaman, harga terjangkau, support penuh!",
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+62-896-6607-7720",
+        "contactType": "customer service",
+        "areaServed": "ID"
+      }],
+      "sameAs": [
+        "https://instagram.com/zentrixkreasi",
+        "https://linkedin.com/company/zentrixkreasi"
+      ]
+    }
+    </script>
     <!-- Google Fonts, Font Awesome, AOS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,6 +66,9 @@
     padding: 0;
     display: flex;
     flex-direction: column;
+    transition: transform 0.35s cubic-bezier(.22,1,.36,1), box-shadow 0.35s cubic-bezier(.22,1,.36,1), border 0.3s;
+    box-shadow: 0 4px 18px rgba(56,189,248,0.08);
+    border: 1.5px solid transparent;
 }
 
 .project-image-wrapper {
@@ -74,6 +114,16 @@
     transform: translateY(15px);
     transition: transform 0.4s ease;
 }
+.project-card:hover .project-overlay-content {
+    transform: translateY(0);
+}
+.project-card:hover .overlay-title {
+    letter-spacing: 0.03em;
+    font-size: 1.18rem;
+    color: #38bdf8;
+    text-shadow: 0 2px 12px rgba(56,189,248,0.18);
+    transition: all 0.3s cubic-bezier(.22,1,.36,1);
+}
 
 .project-card:hover .project-overlay-content {
     transform: translateY(0);
@@ -83,7 +133,12 @@
     color: #fff;
     font-size: 1.1rem;
     margin: 0;
+    transition: transform 0.4s cubic-bezier(.22,1,.36,1), filter 0.4s cubic-bezier(.22,1,.36,1);
     text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+.project-card:hover .project-image {
+    transform: scale(1.07) rotate(-1deg);
+    filter: brightness(1.08) saturate(1.15);
+}
 }
 
 .overlay-actions {
@@ -336,7 +391,7 @@
                             <div class="project-tags"><span class="tag">#Klinik</span><span class="tag">#HTML5</span><span class="tag">#CSS3</span><span class="tag">#JavaScripts</span></div>
                         </div>
                     </div>
-                    <div class="card project-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card project-card" data-aos="fade-up" data-aos-delay="400">
                         <div class="project-image-wrapper">
                             <img src="https://images.pexels.com/photos/256455/pexels-photo-256455.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Library System" class="project-image">
                              <div class="project-overlay">
@@ -358,7 +413,7 @@
                     <!-- (Lanjutkan pola yang sama untuk semua kartu proyek lainnya) -->
                     <!-- Contoh untuk beberapa kartu lagi -->
         
-                    <div class="card project-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card project-card" data-aos="fade-up" data-aos-delay="500">
                         <div class="project-image-wrapper">
                             <img src="https://ugm.ac.id/wp-content/uploads/2024/03/cows-eating-lush-grass-green-field-front-fuji-mountain-japan.jpg" alt="Construction Profile" class="project-image">
                             <div class="project-overlay"><div class="project-overlay-content"><div><h4 class="overlay-title">Profil Pertenakan</h4></div><div class="overlay-actions"><a href="detail-construction.html"  class="overlay-button" data-tooltip="Lihat Detail"><i class="fas fa-eye"></i></a></div></div></div>
@@ -366,7 +421,7 @@
                         <div class="project-content"><p>Website profesional untuk perusahaan pertenakan, menampilkan portofolio proyek dan layanan.</p><div class="project-tags"><span class="tag">#CompanyProfile</span><span class="tag">#UI/UX</span></div></div>
                     </div>
         
-                    <div class="card project-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card project-card" data-aos="fade-up" data-aos-delay="600">
                         <div class="project-image-wrapper">
                             <img src="https://www.devopsschool.com/blog/wp-content/uploads/2023/07/image-604-1024x512.png" alt="App Landing Page" class="project-image">
                             <div class="project-overlay"><div class="project-overlay-content"><div><h4 class="overlay-title">Sistem Pakar Diagnosa Penyakit</h4></div><div class="overlay-actions"><a href="detail-landingpage.html"  class="overlay-button" data-tooltip="Lihat Detail"><i class="fas fa-eye"></i></a></div></div></div>
@@ -374,12 +429,19 @@
                         <div class="project-content"><p>Website sistem pakar untuk mendeteksi penyakit berdasarkan gejala yang diberikan oleh pengguna.</p><div class="project-tags"><span class="tag">#SistemPakar</span><span class="tag">#UI/UX</span></div></div>
                     </div>
         
-                    <div class="card project-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="card project-card" data-aos="fade-up" data-aos-delay="700">
                         <div class="project-image-wrapper">
                             <img src="https://images.pexels.com/photos/3998421/pexels-photo-3998421.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Clinic Booking" class="project-image">
                             <div class="project-overlay"><div class="project-overlay-content"><div><h4 class="overlay-title">Booking Jasa</h4></div><div class="overlay-actions"><a href="detail-booking.html"  class="overlay-button" data-tooltip="Lihat Detail"><i class="fas fa-eye"></i></a></div></div></div>
                         </div>
                         <div class="project-content"><p>Website elegan dengan sistem booking online, memudahkan klien memilih layanan, terapis, dan jadwal perawatan.</p><div class="project-tags"><span class="tag">#BookingSystem</span><span class="tag">#Integrasi</span></div></div>
+                    </div>
+                    <div class="card project-card" data-aos="fade-up" data-aos-delay="800">
+                        <div class="project-image-wrapper">
+                            <img src="https://images.pexels.com/photos/863988/pexels-photo-863988.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Kolam Renang" class="project-image">
+                            <div class="project-overlay"><div class="project-overlay-content"><div><h4 class="overlay-title">Kolam Renang</h4></div><div class="overlay-actions"><a href="detail-renang.html"  class="overlay-button" data-tooltip="Lihat Detail"><i class="fas fa-eye"></i></a></div></div></div>
+                        </div>
+                        <div class="project-content"><p>Website kolam renang modern yang menampilkan info fasilitas, harga tiket, jadwal buka, galeri foto, dan fitur booking online.</p><div class="project-tags"><span class="tag">#KolamRenang</span><span class="tag">#Integrasi</span></div></div>
                     </div>
                     
                     <!-- Silakan lanjutkan untuk kartu 7-10 dengan pola yang sama -->
