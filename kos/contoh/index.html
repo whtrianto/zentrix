@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KosSantuy Elite - Hunian Nyaman, Fasilitas Mewah</title>
+    <meta name="description" content="Temukan hunian nyaman, aman, dan modern di KosSantuy Elite. Fasilitas lengkap dengan lokasi strategis di pusat kota.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS Variables (Theme) --- */
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #f39c12;
+            --accent-color: #e74c3c;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --text-color: #34495e;
+            --white-color: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease-in-out;
+        }
+
+        /* --- Global Reset & Basic Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white-color);
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+            position: relative; /* For animated background positioning */
+            z-index: 2; /* Ensure content is above background */
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px auto;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .bg-light {
+            background-color: var(--light-color);
+        }
+
+        /* --- Animated Background --- */
+        .animated-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            overflow: hidden;
+            background: linear-gradient(to bottom right, #f5f7fa, #c3cfe2);
+        }
+
+        .bg-shape {
+            position: absolute;
+            opacity: 0.1;
+        }
+
+        .shape-1 {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            top: 20%;
+            left: 10%;
+            animation: float-up 15s infinite ease-in-out;
+        }
+
+        .shape-2 {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary-color);
+            top: 60%;
+            right: 10%;
+            animation: float-down 20s infinite ease-in-out;
+        }
+
+        .shape-3 {
+            width: 100px;
+            height: 100px;
+            background: var(--accent-color);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            bottom: 20%;
+            left: 30%;
+            animation: rotate 25s infinite linear;
+        }
+
+        .shape-4 {
+            width: 120px;
+            height: 120px;
+            border: 15px solid var(--primary-color);
+            top: 40%;
+            right: 30%;
+            animation: float-up 18s infinite ease-in-out;
+        }
+
+        @keyframes float-up {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-50px) rotate(180deg); }
+        }
+
+        @keyframes float-down {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(50px); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+
+        /* --- Header & Navigation --- */
+        .header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--box-shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--dark-color);
+            transition: var(--transition);
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            height: 100vh;
+            background: url('https://picsum.photos/seed/hero-kos/1920/1080.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white-color);
+            padding: 0 20px;
+            z-index: 10;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.75) 0%, rgba(120, 175, 211, 0.75) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 750px;
+            z-index: 11;
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-shadow: 5px 5px 10px rgba(0,0,0,0.8), -2px -2px 4px rgba(255,255,255,0.2);
+            color: #ffffff;
+            letter-spacing: 2px;
+            line-height: 1.15;
+            word-spacing: 4px;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 650px;
+            margin: 0 auto 40px auto;
+            color: #ffffff;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+            letter-spacing: 0.8px;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: #ffffff;
+            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.6);
+            border: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-size: 1.1rem;
+            padding: 16px 45px;
+            position: relative;
+            overflow: hidden;
+            font-weight: 700;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.25);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            box-shadow: 0 12px 35px rgba(243, 156, 18, 0.8);
+            transform: translateY(-4px);
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-secondary {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: transparent;
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* --- About Section --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+        .about-text p {
+            margin-bottom: 15px;
+        }
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* --- Facilities Section --- */
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .facility-card {
+            background-color: var(--white-color);
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .facility-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .facility-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .facility-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        /* --- Rooms Section --- */
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .room-card {
+            background-color: var(--white-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .room-card:hover {
+            transform: scale(1.03);
+        }
+
+        .room-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .room-info {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .room-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .room-info ul {
+            list-style: none;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .room-info ul li {
+            margin-bottom: 8px;
+        }
+
+        .room-info ul li i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+
+        .room-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .room-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .room-price span {
+            font-size: 1.8rem;
+        }
+
+        /* --- FAQ Section --- */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--white-color);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: left;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--primary-color);
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 20px;
+        }
+
+        .faq-answer p {
+            padding: 0 0 20px 0;
+        }
+
+        /* --- Testimonials Section --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--white-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .testimonial-author h4 {
+            color: var(--dark-color);
+            margin-bottom: 3px;
+        }
+
+        .testimonial-author p {
+            font-size: 0.9rem;
+            color: #777;
+            margin: 0;
+        }
+
+        /* --- Location Section --- */
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: 0;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* --- Contact Section --- */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        .contact-info {
+            background-color: var(--white-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .contact-info i {
+            color: var(--primary-color);
+            width: 20px;
+        }
+        .contact-form {
+            background-color: var(--white-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 60px 0 20px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-logo span {
+            color: var(--primary-color);
+        }
+
+        .footer-links h4,
+        .footer-contact h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h4::after,
+        .footer-contact h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+        }
+
+        .footer-contact a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-contact a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom i {
+            color: var(--secondary-color);
+        }
+
+        /* --- Animation on Scroll --- */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .about-grid, .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .about-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 80px;
+                flex-direction: column;
+                background-color: var(--white-color);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: var(--box-shadow);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .rooms-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+        <div class="bg-shape shape-3"></div>
+        <div class="bg-shape shape-4"></div>
+    </div>
+
+    <header class="header">
+        <nav class="navbar">
+            <a href="#" class="nav-logo">Kos<span>Santuy</span></a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#about" class="nav-link">Tentang</a></li>
+                <li class="nav-item"><a href="#facilities" class="nav-link">Fasilitas</a></li>
+                <li class="nav-item"><a href="#rooms" class="nav-link">Kamar</a></li>
+                <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Kontak</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content animate-on-scroll">
+                <h1>Lebih dari Sekadar Kos, Ini Rumahmu.</h1>
+                <p>Nikmati hidup nyaman, modern, dan penuh gaya di pusat kota. Fasilitas premium untuk produktivitas dan relaksasi Anda.</p>
+                <a href="#rooms" class="btn btn-primary animate-on-scroll">Lihat Kamar Tersedia</a>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-text animate-on-scroll">
+                        <h3>Komitmen Kami pada Kenyamanan Anda</h3>
+                        <p>Di KosSantuy, kami memahami bahwa rumah adalah tempat untuk beristirahat, berkembang, dan menciptakan kenangan. Itulah mengapa kami mendesain setiap sudut kos kami dengan perhatian penuh pada detail, keamanan, dan kenyamanan.</p>
+                        <p>Kami tidak hanya menyediakan tempat tinggal, tetapi juga sebuah komunitas yang mendukung. Lingkungan yang bersih, penghuni yang ramah, dan manajemen yang responsif adalah bagian dari janji kami kepada Anda.</p>
+                    </div>
+                    <div class="about-image animate-on-scroll">
+                        <img src="https://www.pajak.com/storage/2022/03/rumah-kos.jpg" alt="Lounge Area">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="facilities" class="section bg-light">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Fasilitas Unggulan Kami</h2>
+                <div class="facilities-grid">
+                    <div class="facility-card animate-on-scroll">
+                        <i class="fas fa-wifi"></i>
+                        <h3>Wi-Fi Super Cepat</h3>
+                        <p>Internet fiber optic 24/7 untuk streaming, gaming, dan meeting online tanpa hambatan.</p>
+                    </div>
+                    <div class="facility-card animate-on-scroll">
+                        <i class="fas fa-swimming-pool"></i>
+                        <h3>Kolam Renang</h3>
+                        <p>Segarkan diri Anda di kolam renang pribadi kami yang bersih dan nyaman.</p>
+                    </div>
+                    <div class="facility-card animate-on-scroll">
+                        <i class="fas fa-dumbbell"></i>
+                        <h3>Fitness Center</h3>
+                        <p>Pusat kebugaran mini dengan peralatan lengkap untuk menjaga kesehatan Anda.</p>
+                    </div>
+                    <div class="facility-card animate-on-scroll">
+                        <i class="fas fa-tshirt"></i>
+                        <h3>Laundry Profesional</h3>
+                        <p>Layanan laundry kilat dengan jaminan kebersihan dan wangi tahan lama.</p>
+                    </div>
+                    <div class="facility-card animate-on-scroll">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Keamanan 24/7</h3>
+                        <p>Sistem CCTV canggih dan petugas keamanan berpengalaman untuk ketenangan Anda.</p>
+                    </div>
+                    <div class="facility-card animate-on-scroll">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Dapur Bersama</h3>
+                        <p>Dapur lengkap dan bersih untuk Anda yang ingin memasak sendiri.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="rooms" class="section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Temukan Kamar Impian Anda</h2>
+                <div class="rooms-grid">
+                    <div class="room-card animate-on-scroll">
+                        <img src="https://www.sewakost.com/files/02-2019/ad22110/kost-mewah-baru-kosambi-1745301126_large.JPG" alt="Kamar Standar">
+                        <div class="room-info">
+                            <h3>Kamar Standar</h3>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Kasur Ukuran 90x200</li>
+                                <li><i class="fas fa-check"></i> Lemari & Meja Belajar</li>
+                                <li><i class="fas fa-check"></i> Kamar Mandi Dalam</li>
+                            </ul>
+                            <div class="room-footer">
+                                <div class="room-price"><span>Rp 900.000</span>/bulan</div>
+                                <a href="#contact" class="btn btn-secondary">Sewa Sekarang</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="room-card animate-on-scroll">
+                        <img src="https://awsimages.detik.net.id/community/media/visual/2022/08/23/melihat-fasilitas-rukita-kudus-menteng-2_169.jpeg?w=700&q=90" alt="Kamar Premium">
+                        <div class="room-info">
+                            <h3>Kamar Premium</h3>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Kasur Ukuran 120x200</li>
+                                <li><i class="fas fa-check"></i> AC & TV LED</li>
+                                <li><i class="fas fa-check"></i> Kamar Mandi Dalam (Water Heater)</li>
+                            </ul>
+                            <div class="room-footer">
+                                <div class="room-price"><span>Rp 1.500.000</span>/bulan</div>
+                                <a href="#contact" class="btn btn-secondary">Sewa Sekarang</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="room-card animate-on-scroll">
+                        <img src="https://awsimages.detik.net.id/community/media/visual/2022/10/27/cove-laguna.png?w=1200" alt="Kamar Studio">
+                        <div class="room-info">
+                            <h3>Kamar Studio</h3>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Kasur Ukuran 160x200</li>
+                                <li><i class="fas fa-check"></i> Ruang Tamu Mini</li>
+                                <li><i class="fas fa-check"></i> Dapur Pribadi & Balkon</li>
+                            </ul>
+                            <div class="room-footer">
+                                <div class="room-price"><span>Rp 2.500.000</span>/bulan</div>
+                                <a href="#contact" class="btn btn-secondary">Sewa Sekarang</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="room-card animate-on-scroll">
+                        <img src="https://duniatelevisi.com/wp-content/uploads/2024/03/Kosan-Mahal-di-Indonesia.jpg" alt="Kamar Premium">
+                        <div class="room-info">
+                            <h3>Kamar Premium</h3>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Kasur Ukuran 200x200</li>
+                                <li><i class="fas fa-check"></i> Ruang Tamu besar</li>
+                                <li><i class="fas fa-check"></i> Dapur Pribadi & Balkon</li>
+                            </ul>
+                            <div class="room-footer">
+                                <div class="room-price"><span>Rp 3.500.000</span>/bulan</div>
+                                <a href="#contact" class="btn btn-secondary">Sewa Sekarang</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="section bg-light">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Apa Kata Mereka?</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card animate-on-scroll">
+                        <p>"Kamar yang disediakan besar dan nyaman. Banyak Fasilitas yg memadai dan pelayanannya ramah."</p>
+                        <div class="testimonial-author">
+                            <img src="data:image/jpeg;base64,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" alt="User">
+                            <div>
+                                <h4>Aditya Mukti</h4>
+                                <p>Penghuni sejak 2021</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card animate-on-scroll">
+                        <p>"Fasilitasnya lengkap banget, ada kolam renang dan gym. Jadi ga perlu keluar kos buat olahraga. Wi-Fi nya juga kencang, pas banget buat WFH. Highly recommended!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://picsum.photos/seed/user1/50/50.jpg" alt="User">
+                            <div>
+                                <h4>Rizki Ahmad</h4>
+                                <p>Penghuni sejak 2022</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card animate-on-scroll">
+                        <p>"Aman dan nyaman, suasananya seperti rumah sendiri. Pemilik dan pengelolanya sangat ramah dan responsif jika ada keluhan. Lokasinya juga strategis banget!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://picsum.photos/seed/user2/50/50.jpg" alt="User">
+                            <div>
+                                <h4>Siti Nurhaliza</h4>
+                                <p>Penghuni sejak 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card animate-on-scroll">
+                        <p>"Kamar Studionya worth it banget! Ada balkon sendiri jadi bisa santai sore-sore. Kebersihan selalu terjaga. Puas banget tinggal di sini."</p>
+                        <div class="testimonial-author">
+                            <img src="https://picsum.photos/seed/user3/50/50.jpg" alt="User">
+                            <div>
+                                <h4>Budi Santoso</h4>
+                                <p>Penghuni sejak 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="faq" class="section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Pertanyaan yang Sering Diajukan</h2>
+                <div class="faq-container">
+                    <div class="faq-item animate-on-scroll">
+                        <button class="faq-question">Apa saja syarat untuk menyewa kamar? <i class="fas fa-chevron-down"></i></button>
+                        <div class="faq-answer">
+                            <p>Syaratnya cukup mudah: melampirkan fotokopi KTP, kartu identitas pelajar/mahasiswa (jika masih kuliah), dan membayar uang muka (DP) sebesar 1 bulan sewa.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <button class="faq-question">Apakah boleh membawa tamu? <i class="fas fa-chevron-down"></i></button>
+                        <div class="faq-answer">
+                            <p>Boleh, tamu diperbolehkan berkunjung hingga pukul 22.00. Jika ada tamu yang ingin menginap, bisa dikoordinasikan dengan pengelola dan akan ada biaya tambahan.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <button class="faq-question">Bagaimana sistem pembayarannya? <i class="fas fa-chevron-down"></i></button>
+                        <div class="faq-answer">
+                            <p>Pembayaran dilakukan setiap bulan pada tanggal yang telah disepakati. Kami menerima transfer bank, e-wallet, dan pembayaran tunai.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <button class="faq-question">Apakah ada jadwal untuk kebersihan kamar? <i class="fas fa-chevron-down"></i></button>
+                        <div class="faq-answer">
+                            <p>Kebersihan area umum dilakukan setiap hari. Untuk kebersihan kamar, kami menyediakan jasa (dengan biaya tambahan) atau Anda dapat membersihkannya sendiri karena peralatan kebersihan tersedia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="location" class="section bg-light">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Lokasi Strategis Kami</h2>
+                <div class="map-container animate-on-scroll">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.8195613507864!3d-6.194741395493371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5390917b759%3A0x6b45e67356080477!2sMonas!5e0!3m2!1sen!2sid!4v1678886364212!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Hubungi Kami untuk Info Lebih Lanjut</h2>
+                <div class="contact-wrapper">
+                    <div class="contact-info animate-on-scroll">
+                        <h3>Informasi Kontak</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Jl. Contoh Elite No. 123, Jakarta Pusat</p>
+                        <p><i class="fas fa-phone"></i> +62 812-3456-7890</p>
+                        <p><i class="fas fa-envelope"></i> info@kossantuy.com</p>
+                        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20kos%20anda" target="_blank" style="color: var(--primary-color); font-weight: 600; text-decoration: none;">Chat via WhatsApp</a></p>
+                    </div>
+                    <form class="contact-form animate-on-scroll">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Nama Lengkap" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Email Aktif" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Nomor WhatsApp" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" placeholder="Pesan Anda (misal: tanya kamar, jadwal survey)" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Kos<span>Santuy</span></h3>
+                    <p>Hunian nyaman untuk masa depan yang lebih baik.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Link Cepat</h4>
+                    <ul>
+                        <li><a href="#about">Tentang</a></li>
+                        <li><a href="#facilities">Fasilitas</a></li>
+                        <li><a href="#rooms">Kamar</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Ikuti Kami</h4>
+                    <p><a href="#"><i class="fab fa-instagram"></i> @kossantuyelite</a></p>
+                    <p><a href="#"><i class="fab fa-facebook"></i> KosSantuyElite</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <h3>&copy; 2024 KosSantuy Elite. All Rights Reserved.<br>Made with <i class="fas fa-heart"></i> by a 
+                    <span>
+                        <a href="https://zentrix.siabid.id" target="_blank" style="color: var(--primary-color); font-weight: 600; text-decoration: none;">
+                            ZentrixKreasi.
+                        </a>    
+                    </span>
+                </h3>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // --- Mobile Navigation Toggle ---
+            const hamburger = document.querySelector(".hamburger");
+            const navMenu = document.querySelector(".nav-menu");
+
+            hamburger.addEventListener("click", () => {
+                hamburger.classList.toggle("active");
+                navMenu.classList.toggle("active");
+            });
+
+            document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navMenu.classList.remove("active");
+            }));
+
+            // --- FAQ Accordion ---
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isActive = question.classList.contains('active');
+                    
+                    // Close all other answers
+                    faqQuestions.forEach(q => {
+                        q.classList.remove('active');
+                        q.nextElementSibling.style.maxHeight = null;
+                    });
+
+                    // Open current answer if it was closed
+                    if (!isActive) {
+                        question.classList.add('active');
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    }
+                });
+            });
+
+
+            // --- Animation on Scroll (Intersection Observer) ---
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // observer.unobserve(entry.target); // Keep observing for repeated animations if needed
+                    }
+                });
+            }, observerOptions);
+
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            animatedElements.forEach(el => {
+                observer.observe(el);
+                // Jika element adalah hero content, langsung tambahkan is-visible
+                if (el.closest('#hero')) {
+                    el.classList.add('is-visible');
+                }
+            });
+
+            // --- Simple Form Submission Handler ---
+            const contactForm = document.querySelector('.contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Di dunia nyata, Anda akan mengirim data ini ke server menggunakan fetch() atau XMLHttpRequest
+                    alert('Terima kasih! Pesan Anda telah kami terima. Kami akan segera menghubungi Anda.');
+                    contactForm.reset();
+                });
+            }
+
+        });
+    </script>
+</body>
+</html>
