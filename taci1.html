@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PT TD Automotive Compressor Indonesia | TACI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
-            --astra-blue: #004098;
-            --dark-blue: #002d6b;
-            --accent-blue: #007bff;
+            --astra-blue: #32b4e7;
+            --dark-blue: #1e6bd7;
+            --accent-blue: #4198f5;
             --bg-light: #ffffff;
             --text-main: #2d2d2d;
             --text-muted: #666666;
@@ -154,7 +157,7 @@
 
         .btn-primary:hover {
             background: var(--dark-blue);
-            box-shadow: 0 10px 20px rgba(0,64,152,0.2);
+            box-shadow: 0 10px 20px rgba(0, 64, 152, 0.2);
         }
 
         /* Statistics Section */
@@ -240,7 +243,7 @@
         .value-card:hover {
             border-top: 4px solid var(--astra-blue);
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
         }
 
         .value-card h3 {
@@ -272,8 +275,15 @@
 
         /* Animation Keyframes */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .reveal {
@@ -281,13 +291,185 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .grid-about { grid-template-columns: 1fr; }
-            nav ul { display: none; }
-            .stats { flex-wrap: wrap; gap: 30px; }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .grid-about {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .stats {
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+        }
+
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: 0.4s;
+            border: 1px solid var(--border-color);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 64, 152, 0.15);
+        }
+
+        .product-img {
+            height: 250px;
+            background: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .product-img img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-info h3 {
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .product-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .badge-spec {
+            display: inline-block;
+            background: rgba(0, 64, 152, 0.08);
+            color: var(--astra-blue);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Clients Section */
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 40px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .client-logo {
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: 0.3s;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #888;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .client-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            color: var(--astra-blue);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            background: white;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-info-item {
+            margin-bottom: 30px;
+        }
+
+        .contact-info-item h4 {
+            color: var(--astra-blue);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: var(--astra-blue);
+            box-shadow: 0 0 0 3px rgba(0, 64, 152, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-blue);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <canvas id="bg-canvas"></canvas>
@@ -300,7 +482,8 @@
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About Us</a></li>
-            <li><a href="#values">Our Values</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#customers">Customers</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -309,9 +492,10 @@
         <div class="hero-content">
             <span class="hero-tagline">Excellence in Precision</span>
             <h1>The Heart of Your Vehicle's Comfort.</h1>
-            <p>Sebagai bagian dari jaringan Astra dan Denso, kami memproduksi kompresor AC otomotif kelas dunia dengan standar kualitas Jepang yang tak tertandingi untuk mobilitas global.</p>
+            <p>Sebagai bagian dari jaringan Astra dan Denso, kami memproduksi kompresor AC otomotif kelas dunia dengan
+                standar kualitas Jepang yang tak tertandingi untuk mobilitas global.</p>
             <div class="cta-group">
-                <a href="#about" class="btn-primary">Learn More</a>
+                <a href="#about" class="btn-primary">Discover TACI</a>
             </div>
         </div>
     </section>
@@ -326,8 +510,8 @@
             <p>Units Produced</p>
         </div>
         <div class="stat-item">
-            <h2>4+</h2>
-            <p>Global Partners</p>
+            <h2>8+</h2>
+            <p>Global Brands</p>
         </div>
         <div class="stat-item">
             <h2>ISO</h2>
@@ -338,7 +522,8 @@
     <section id="about">
         <div class="grid-about">
             <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Factory">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800"
+                    alt="Factory">
             </div>
             <div class="about-text">
                 <div class="section-header">
@@ -346,12 +531,84 @@
                     <h2>Leading The Industry With Innovation</h2>
                 </div>
                 <p style="color: var(--text-muted); margin-bottom: 20px;">
-                    PT TD Automotive Compressor Indonesia (TACI) adalah perusahaan joint venture antara <b>Toyota Industries Corporation, Denso, Astra Otoparts,</b> dan <b>Toyota Tsusho</b>. 
+                    PT TD Automotive Compressor Indonesia (TACI) adalah perusahaan joint venture antara <b>Toyota
+                        Industries Corporation, Denso, Astra Otoparts,</b> dan <b>Toyota Tsusho</b>.
                 </p>
                 <p style="color: var(--text-muted);">
-                    Kami berfokus pada manufaktur kompresor tipe fixed untuk sistem pendingin udara mobil, melayani pasar Original Equipment Manufacturer (OEM) terbesar di Asia Tenggara dengan dedikasi tinggi terhadap efisiensi energi.
+                    Kami berfokus pada manufaktur kompresor tipe fixed untuk sistem pendingin udara mobil, melayani
+                    pasar Original Equipment Manufacturer (OEM) terbesar di Asia Tenggara dengan dedikasi tinggi
+                    terhadap efisiensi energi.
                 </p>
             </div>
+        </div>
+    </section>
+
+    <section id="products" style="background: rgba(255,255,255,0.8);">
+        <div class="section-header" style="text-align: center;">
+            <span>Our Technology</span>
+            <h2>Superior Compressor Lineup</h2>
+        </div>
+
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1532187643605-4e78dc49f67a?auto=format&fit=crop&q=80&w=400"
+                        alt="Compressor 10S">
+                </div>
+                <div class="product-info">
+                    <h3>10S Series Swash Plate</h3>
+                    <p>Kompresor tipe fixed displacement standar global yang dikenal dengan durabilitas tinggi dan
+                        performa pendinginan stabil.</p>
+                    <span class="badge-spec">Small & Compact</span>
+                    <span class="badge-spec">High Efficiency</span>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1563720743679-24231804b407?auto=format&fit=crop&q=80&w=400"
+                        alt="Compressor 10S">
+                </div>
+                <div class="product-info">
+                    <h3>10P Series Piston</h3>
+                    <p>Desain klasik yang telah teruji waktu, memberikan reliabilitas maksimal untuk kendaraan niaga dan
+                        penumpang.</p>
+                    <span class="badge-spec">Heavy Duty</span>
+                    <span class="badge-spec">Reliable</span>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1536332711883-93dcf328004f?auto=format&fit=crop&q=80&w=400"
+                        alt="Electric Compressor">
+                </div>
+                <div class="product-info">
+                    <h3>Electric Compressor (ES)</h3>
+                    <p>Inovasi masa depan untuk kendaraan Hybrid dan EV, dengan pengoperasian senyap dan kontrol
+                        elektronik presisi.</p>
+                    <span class="badge-spec">EV Ready</span>
+                    <span class="badge-spec">Silent Tech</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="customers">
+        <div class="section-header" style="text-align: center;">
+            <span>Trusted Partners</span>
+            <h2>Supplying Global Automotive Leaders</h2>
+        </div>
+        <div class="clients-grid">
+            <div class="client-logo">TOYOTA</div>
+            <div class="client-logo">DAIHATSU</div>
+            <div class="client-logo">HONDA</div>
+            <div class="client-logo">MITSUBISHI</div>
+            <div class="client-logo">SUZUKI</div>
+            <div class="client-logo">ISUZU</div>
         </div>
     </section>
 
@@ -380,11 +637,64 @@
         </div>
     </section>
 
+    <section id="contact" style="background: #f8f9fa;">
+        <div class="section-header" style="text-align: center;">
+            <span>Get In Touch</span>
+            <h2>Connect With Us</h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-info-item">
+                    <h4>Head Office & Factory</h4>
+                    <p>Kawasan Industri MM2100 Blok LL No. 9-10,<br>Cikarang Barat, Bekasi, Jawa Barat 17520</p>
+                </div>
+                <div class="contact-info-item">
+                    <h4>Contact Channels</h4>
+                    <p>Email: contact@taci.astra.co.id<br>Phone: (021) 8998 1234<br>Fax: (021) 8998 5678</p>
+                </div>
+                <div class="contact-info-item">
+                    <h4>Operational Hours</h4>
+                    <p>Senin - Jumat: 07:30 - 16:30<br>Sabtu - Minggu: Libur</p>
+                </div>
+            </div>
+
+            <form class="contact-form"
+                onsubmit="event.preventDefault(); alert('Terima kasih. Pesan Anda telah kami terima.');">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nama Lengkap</label>
+                        <input type="text" placeholder="Masukkan nama anda">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Perusahaan</label>
+                        <input type="email" placeholder="email@company.com">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Subjek</label>
+                    <select>
+                        <option>Pertanyaan Umum</option>
+                        <option>Kerjasama Bisnis</option>
+                        <option>Karir & Rekrutmen</option>
+                        <option>Pengaduan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Pesan</label>
+                    <textarea rows="4" placeholder="Tuliskan pesan anda disini..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Kirim
+                    Pesan</button>
+            </form>
+        </div>
+    </section>
+
     <footer>
         <div class="footer-grid">
             <div>
                 <h3 style="margin-bottom: 20px;">PT TACI</h3>
-                <p style="color: #aaa; font-size: 0.9rem;">Kawasan Industri MM2100 Blok LL No. 9-10,<br>Cikarang Barat, Bekasi, Jawa Barat 17520, Indonesia.</p>
+                <p style="color: #aaa; font-size: 0.9rem;">Kawasan Industri MM2100 Blok LL No. 9-10,<br>Cikarang Barat,
+                    Bekasi, Jawa Barat 17520, Indonesia.</p>
             </div>
             <div>
                 <h4 style="margin-bottom: 20px;">Navigation</h4>
@@ -396,7 +706,8 @@
             </div>
             <div>
                 <h4 style="margin-bottom: 20px;">Follow Us</h4>
-                <p style="color: #aaa; font-size: 0.9rem;">Terhubung dengan kami untuk mendapatkan informasi terbaru seputar teknologi otomotif.</p>
+                <p style="color: #aaa; font-size: 0.9rem;">Terhubung dengan kami untuk mendapatkan informasi terbaru
+                    seputar teknologi otomotif.</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -450,29 +761,29 @@
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
+
             // Draw subtle grid
             ctx.strokeStyle = 'rgba(0, 64, 152, 0.03)';
             ctx.lineWidth = 1;
-            for(let i = 0; i < canvas.width; i += 50) {
+            for (let i = 0; i < canvas.width; i += 50) {
                 ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, canvas.height); ctx.stroke();
             }
-            for(let i = 0; i < canvas.height; i += 50) {
+            for (let i = 0; i < canvas.height; i += 50) {
                 ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(canvas.width, i); ctx.stroke();
             }
 
             particles.forEach((p, index) => {
                 p.update();
                 p.draw();
-                
+
                 // Connect lines (Blueprint effect)
                 for (let j = index; j < particles.length; j++) {
                     const dx = p.x - particles[j].x;
                     const dy = p.y - particles[j].y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
-                    
+
                     if (distance < 150) {
-                        ctx.strokeStyle = `rgba(0, 64, 152, ${0.15 - distance/1000})`;
+                        ctx.strokeStyle = `rgba(0, 64, 152, ${0.15 - distance / 1000})`;
                         ctx.lineWidth = 0.5;
                         ctx.beginPath();
                         ctx.moveTo(p.x, p.y);
@@ -502,4 +813,5 @@
         });
     </script>
 </body>
+
 </html>
