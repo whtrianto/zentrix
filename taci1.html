@@ -3,80 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Official Profile | PT TD Automotive Compressor Indonesia</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <title>PT TD Automotive Compressor Indonesia | TACI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
             --astra-blue: #004098;
-            --denso-red: #e60012;
-            --dark-navy: #00265ad9;
-            --slate: #4a5568;
-            --light-bg: #f8fafc;
-            --border: #e2e8f0;
+            --dark-blue: #002d6b;
+            --accent-blue: #007bff;
+            --bg-light: #ffffff;
+            --text-main: #2d2d2d;
+            --text-muted: #666666;
+            --border-color: #e0e0e0;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            color: #1a202c;
-            line-height: 1.7;
-            background: #fff;
-            scroll-behavior: smooth;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Technical Blueprint Background */
-        #canvas-bg {
+        /* Background Animation Canvas */
+        #bg-canvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            background-color: #ffffff;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
 
-        /* Navbar */
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.98);
-            border-bottom: 1px solid var(--border);
-            padding: 15px 8%;
+            padding: 20px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .logo-group { display: flex; align-items: center; gap: 15px; }
-        .logo-main { 
-            background: var(--astra-blue); 
-            color: white; 
-            padding: 5px 15px; 
-            font-weight: 800; 
-            font-size: 1.4rem;
-        }
-        .logo-sub { 
-            font-size: 0.75rem; 
-            font-weight: 600; 
-            color: var(--astra-blue); 
-            text-transform: uppercase; 
-            line-height: 1.2;
-            border-left: 2px solid var(--border);
-            padding-left: 15px;
-        }
-
-        nav ul { display: flex; list-style: none; gap: 30px; }
-        nav ul li a { 
-            text-decoration: none; 
-            color: #4a5568; 
-            font-size: 0.85rem; 
-            font-weight: 500;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
             transition: 0.3s;
         }
-        nav ul li a:hover { color: var(--astra-blue); }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-box {
+            background: var(--astra-blue);
+            color: white;
+            padding: 5px 12px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .logo-text {
+            font-weight: 600;
+            color: var(--dark-blue);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--astra-blue);
+        }
 
         /* Hero Section */
         .hero {
@@ -84,340 +105,398 @@
             display: flex;
             align-items: center;
             padding: 0 10%;
-            background: transparent;
+            margin-top: 60px;
         }
 
-        .hero-content { max-width: 850px; }
-        .hero-label { 
-            color: var(--denso-red); 
-            font-weight: 700; 
-            letter-spacing: 2px; 
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-tagline {
+            color: var(--astra-blue);
+            font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            letter-spacing: 3px;
             margin-bottom: 20px;
             display: block;
         }
-        .hero h1 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 4.5rem; 
-            color: var(--astra-blue); 
-            line-height: 1.1; 
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            color: var(--dark-blue);
+            line-height: 1.1;
             margin-bottom: 30px;
         }
-        .hero p { 
-            font-size: 1.2rem; 
-            color: var(--slate); 
-            margin-bottom: 40px; 
-            max-width: 600px;
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            border-left: 4px solid var(--astra-blue);
+            padding-left: 20px;
         }
 
-        /* Section Styling */
-        section { padding: 100px 10%; }
-        .section-tag { color: var(--astra-blue); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
-        .section-title { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: #1a365d; margin: 10px 0 50px; }
-
-        /* Joint Venture Cards */
-        .jv-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-top: 40px;
-        }
-        .jv-card {
-            padding: 30px;
-            background: white;
-            border: 1px solid var(--border);
-            text-align: center;
-            transition: 0.3s;
-        }
-        .jv-card:hover { border-bottom: 4px solid var(--astra-blue); transform: translateY(-5px); }
-        .jv-card h4 { font-size: 0.9rem; color: var(--astra-blue); }
-
-        /* Product Showcase */
-        .product-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-        .product-item {
-            background: var(--light-bg);
-            padding: 50px;
-            border-radius: 4px;
+        .cta-group {
             display: flex;
-            flex-direction: column;
             gap: 20px;
         }
-        .product-item h3 { color: var(--astra-blue); font-size: 1.8rem; }
-        .product-specs { list-style: none; font-size: 0.9rem; color: var(--slate); }
-        .product-specs li { margin-bottom: 8px; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; }
 
-        /* Timeline */
-        .timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .timeline-item {
-            padding: 20px 40px;
-            position: relative;
-            border-left: 2px solid var(--astra-blue);
-            margin-left: 20px;
-            margin-bottom: 30px;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -9px;
-            top: 25px;
-            width: 16px;
-            height: 16px;
-            background: var(--astra-blue);
-            border-radius: 50%;
-        }
-        .time { font-weight: 700; color: var(--astra-blue); font-size: 1.2rem; }
-
-        /* Sustainability Section */
-        .esg-section {
+        .btn-primary {
+            padding: 16px 35px;
             background: var(--astra-blue);
             color: white;
-            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--dark-blue);
+            box-shadow: 0 10px 20px rgba(0,64,152,0.2);
+        }
+
+        /* Statistics Section */
+        .stats {
+            background: var(--dark-blue);
+            padding: 60px 10%;
             display: flex;
-            overflow: hidden;
+            justify-content: space-between;
+            color: white;
+        }
+
+        .stat-item h2 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+
+        /* About Section */
+        section {
+            padding: 120px 10%;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-header span {
+            color: var(--astra-blue);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-top: 10px;
+        }
+
+        .grid-about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
             align-items: center;
         }
-        .esg-content { padding: 60px; flex: 1; }
-        .esg-image { flex: 1; background: url('https://images.unsplash.com/photo-1509391366360-fe5bb658582f?auto=format&fit=crop&q=80&w=800'); height: 400px; background-size: cover; }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: #eee;
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 30px 30px 0px var(--astra-blue);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.1);
+        }
+
+        /* Value Cards */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .value-card {
+            padding: 40px;
+            background: white;
+            border: 1px solid var(--border-color);
+            transition: 0.4s;
+        }
+
+        .value-card:hover {
+            border-top: 4px solid var(--astra-blue);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .value-card h3 {
+            margin-bottom: 15px;
+            color: var(--astra-blue);
+        }
 
         /* Footer */
-        footer { background: #0f172a; color: #94a3b8; padding: 80px 10% 40px; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 60px; }
-        .footer-logo { color: white; font-weight: 800; font-size: 1.5rem; margin-bottom: 20px; }
-        .footer-links h4 { color: white; margin-bottom: 20px; font-size: 1rem; }
-        .footer-links ul { list-style: none; }
-        .footer-links li { margin-bottom: 12px; font-size: 0.9rem; }
-        .copyright { border-top: 1px solid #1e293b; padding-top: 30px; text-align: center; font-size: 0.8rem; }
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 80px 10% 40px;
+        }
 
-        @media (max-width: 992px) {
-            .hero h1 { font-size: 3rem; }
-            .jv-container { grid-template-columns: 1fr 1fr; }
-            .product-grid { grid-template-columns: 1fr; }
-            .esg-section { flex-direction: column; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .grid-about { grid-template-columns: 1fr; }
+            nav ul { display: none; }
+            .stats { flex-wrap: wrap; gap: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <canvas id="canvas-bg"></canvas>
+    <canvas id="bg-canvas"></canvas>
 
     <nav>
-        <div class="logo-group">
-            <div class="logo-main">TACI</div>
-            <div class="logo-sub">TD Automotive<br>Compressor Indonesia</div>
+        <div class="logo-area">
+            <div class="logo-box">TACI</div>
+            <div class="logo-text">TD Automotive<br>Compressor Indonesia</div>
         </div>
         <ul>
-            <li><a href="#about">Tentang Kami</a></li>
-            <li><a href="#products">Produk</a></li>
-            <li><a href="#sustainability">Keberlanjutan</a></li>
-            <li><a href="#contact">Kontak</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#values">Our Values</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="hero-content">
-            <span class="hero-label">World-Class Manufacturing</span>
-            <h1>Pusat Keunggulan Kompresor Otomotif Global.</h1>
-            <p>Membangun masa depan mobilitas dengan teknologi kompresi tercanggih, mendukung kenyamanan jutaan pengendara di seluruh dunia.</p>
-            <div style="display: flex; gap: 20px;">
-                <a href="#about" style="padding: 15px 35px; background: var(--astra-blue); color: white; text-decoration: none; font-weight: 600; border-radius: 4px;">Explore Profile</a>
+            <span class="hero-tagline">Excellence in Precision</span>
+            <h1>The Heart of Your Vehicle's Comfort.</h1>
+            <p>Sebagai bagian dari jaringan Astra dan Denso, kami memproduksi kompresor AC otomotif kelas dunia dengan standar kualitas Jepang yang tak tertandingi untuk mobilitas global.</p>
+            <div class="cta-group">
+                <a href="#about" class="btn-primary">Learn More</a>
             </div>
         </div>
     </section>
+
+    <div class="stats">
+        <div class="stat-item">
+            <h2>2011</h2>
+            <p>Established</p>
+        </div>
+        <div class="stat-item">
+            <h2>10M+</h2>
+            <p>Units Produced</p>
+        </div>
+        <div class="stat-item">
+            <h2>4+</h2>
+            <p>Global Partners</p>
+        </div>
+        <div class="stat-item">
+            <h2>ISO</h2>
+            <p>Certified Quality</p>
+        </div>
+    </div>
 
     <section id="about">
-        <span class="section-tag">Corporate Structure</span>
-        <h2 class="section-title">Sinergi Pemimpin Industri</h2>
-        <p style="max-width: 800px; margin-bottom: 40px; color: var(--slate);">PT TD Automotive Compressor Indonesia merupakan kolaborasi strategis dari empat kekuatan industri besar. Kami menggabungkan keahlian manufaktur Jepang dengan jaringan distribusi dan infrastruktur otomotif terbesar di Indonesia.</p>
-        
-        <div class="jv-container">
-            <div class="jv-card">
-                <h4>Toyota Industries Corp. (TICO)</h4>
-                <p style="font-size: 0.7rem; color: #888; margin-top: 10px;">Principal Technology</p>
+        <div class="grid-about">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Factory">
             </div>
-            <div class="jv-card">
-                <h4>DENSO Corporation</h4>
-                <p style="font-size: 0.7rem; color: #888; margin-top: 10px;">Global Components Leader</p>
-            </div>
-            <div class="jv-card">
-                <h4>PT Astra Otoparts Tbk</h4>
-                <p style="font-size: 0.7rem; color: #888; margin-top: 10px;">Indonesia's Largest Parts Co.</p>
-            </div>
-            <div class="jv-card">
-                <h4>Toyota Tsusho Corp.</h4>
-                <p style="font-size: 0.7rem; color: #888; margin-top: 10px;">Global Supply Chain</p>
+            <div class="about-text">
+                <div class="section-header">
+                    <span>Corporate Profile</span>
+                    <h2>Leading The Industry With Innovation</h2>
+                </div>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">
+                    PT TD Automotive Compressor Indonesia (TACI) adalah perusahaan joint venture antara <b>Toyota Industries Corporation, Denso, Astra Otoparts,</b> dan <b>Toyota Tsusho</b>. 
+                </p>
+                <p style="color: var(--text-muted);">
+                    Kami berfokus pada manufaktur kompresor tipe fixed untuk sistem pendingin udara mobil, melayani pasar Original Equipment Manufacturer (OEM) terbesar di Asia Tenggara dengan dedikasi tinggi terhadap efisiensi energi.
+                </p>
             </div>
         </div>
     </section>
 
-    <section id="history" style="background: #fdfdfd;">
-        <span class="section-tag">Our Journey</span>
-        <h2 class="section-title">Milestones</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="time">2011</div>
-                <p>Pendirian PT TD Automotive Compressor Indonesia di Kawasan MM2100, Cikarang.</p>
-            </div>
-            <div class="timeline-item">
-                <div class="time">2012</div>
-                <p>Produksi massal pertama dimulai untuk pasar domestik dan ekspor.</p>
-            </div>
-            <div class="timeline-item">
-                <div class="time">2018</div>
-                <p>Pencapaian produksi ke-10 juta unit kompresor untuk pasar global.</p>
-            </div>
-            <div class="timeline-item">
-                <div class="time">2023</div>
-                <p>Implementasi sistem Solar Cell 3.2 MWp sebagai komitmen Carbon Neutral.</p>
-            </div>
+    <section id="values" style="background: rgba(255,255,255,0.5);">
+        <div class="section-header" style="text-align: center;">
+            <span>Our Philosophy</span>
+            <h2>The TACI Way</h2>
         </div>
-    </section>
-
-    <section id="products">
-        <span class="section-tag">Our Expertise</span>
-        <h2 class="section-title">Produk & Teknologi</h2>
-        <div class="product-grid">
-            <div class="product-item">
-                <h3>Fixed Displacement</h3>
-                <p>Dikenal karena daya tahan tinggi dan efisiensi biaya, digunakan oleh produsen OEM terkemuka.</p>
-                <ul class="product-specs">
-                    <li>Kategori: Swash Plate Type (10S Series)</li>
-                    <li>Aplikasi: Passenger Cars, SUVs, Light Trucks</li>
-                    <li>Keunggulan: Struktur kompak & kebisingan rendah</li>
-                </ul>
+        <div class="values-grid">
+            <div class="value-card">
+                <h3>Quality First</h3>
+                <p>Memastikan setiap unit kompresor melewati uji presisi mikron demi performa AC yang optimal.</p>
             </div>
-            <div class="product-item">
-                <h3>Electric Compressor</h3>
-                <p>Inovasi terbaru untuk kendaraan masa depan (Hybrid & Electric Vehicles).</p>
-                <ul class="product-specs">
-                    <li>Kategori: ES Series (Electric Scroll)</li>
-                    <li>Aplikasi: xEV (HEV, PHEV, BEV)</li>
-                    <li>Keunggulan: Efisiensi energi tinggi & kontrol presisi</li>
-                </ul>
+            <div class="value-card">
+                <h3>Safety Culture</h3>
+                <p>Menciptakan lingkungan kerja yang aman bagi ribuan talenta kami melalui standar K3 internasional.</p>
             </div>
-        </div>
-    </section>
-
-    <section id="sustainability">
-        <div class="esg-section">
-            <div class="esg-content">
-                <span style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">Sustainability</span>
-                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin: 20px 0;">Green Manufacturing</h2>
-                <p>Kami bangga mengoperasikan salah satu sistem PLTS Atap (Solar Cell) terbesar di kawasan industri Indonesia untuk mereduksi emisi karbon secara signifikan, sejalan dengan visi Astra & Denso Green Factory.</p>
+            <div class="value-card">
+                <h3>Green Energy</h3>
+                <p>Mendukung keberlanjutan dengan implementasi panel surya dan reduksi emisi karbon di pabrik kami.</p>
             </div>
-            <div class="esg-image"></div>
+            <div class="value-card">
+                <h3>Continuous Kaizen</h3>
+                <p>Inovasi tiada henti dalam proses manufaktur untuk mencapai efisiensi biaya dan waktu.</p>
+            </div>
         </div>
     </section>
 
     <footer>
         <div class="footer-grid">
             <div>
-                <div class="footer-logo">TACI</div>
-                <p>Menjadi basis produksi kompresor otomotif nomor 1 di dunia melalui keunggulan manufaktur dan kepedulian lingkungan.</p>
+                <h3 style="margin-bottom: 20px;">PT TACI</h3>
+                <p style="color: #aaa; font-size: 0.9rem;">Kawasan Industri MM2100 Blok LL No. 9-10,<br>Cikarang Barat, Bekasi, Jawa Barat 17520, Indonesia.</p>
             </div>
-            <div class="footer-links">
-                <h4>Perusahaan</h4>
-                <ul>
-                    <li>Profil Perusahaan</li>
-                    <li>Visi & Misi</li>
-                    <li>Struktur Organisasi</li>
+            <div>
+                <h4 style="margin-bottom: 20px;">Navigation</h4>
+                <ul style="list-style: none; color: #aaa; font-size: 0.9rem;">
+                    <li style="margin-bottom: 10px;">Careers</li>
+                    <li style="margin-bottom: 10px;">Sustainability</li>
+                    <li style="margin-bottom: 10px;">News & Updates</li>
                 </ul>
             </div>
-            <div class="footer-links">
-                <h4>Informasi</h4>
-                <ul>
-                    <li>Karir (Career)</li>
-                    <li>Sustainability Report</li>
-                    <li>Sertifikasi</li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Kontak</h4>
-                <ul>
-                    <li>(021) 898 1234</li>
-                    <li>info@taci.astra.co.id</li>
-                    <li>Kawasan MM2100, Bekasi</li>
-                </ul>
+            <div>
+                <h4 style="margin-bottom: 20px;">Follow Us</h4>
+                <p style="color: #aaa; font-size: 0.9rem;">Terhubung dengan kami untuk mendapatkan informasi terbaru seputar teknologi otomotif.</p>
             </div>
         </div>
-        <div class="copyright">
-            &copy; 2024 PT TD Automotive Compressor Indonesia. All Rights Reserved. Member of Astra & Denso Group.
+        <div class="footer-bottom">
+            &copy; 2024 PT TD Automotive Compressor Indonesia. Member of Astra & Denso Group.
         </div>
     </footer>
 
     <script>
-        /* --- PROFESSIONAL TECH BACKGROUND --- */
-        const canvas = document.getElementById('canvas-bg');
+        /* --- BACKGROUND ANIMATION (TECHNICAL BLUEPRINT STYLE) --- */
+        const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
-        let points = [];
+        let particles = [];
 
-        function init() {
+        function initCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            points = [];
-            for(let i=0; i<40; i++) {
-                points.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    vx: (Math.random() - 0.5) * 0.4,
-                    vy: (Math.random() - 0.5) * 0.4
-                });
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+
+            draw() {
+                ctx.fillStyle = 'rgba(0, 64, 152, 0.15)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
             }
         }
 
-        function draw() {
-            ctx.clearRect(0,0,canvas.width, canvas.height);
+        function createParticles() {
+            for (let i = 0; i < 60; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
             
-            // Draw Blueprint Grid
-            ctx.strokeStyle = '#f0f4f8';
+            // Draw subtle grid
+            ctx.strokeStyle = 'rgba(0, 64, 152, 0.03)';
             ctx.lineWidth = 1;
-            for(let i=0; i<canvas.width; i+=60) {
-                ctx.beginPath(); ctx.moveTo(i,0); ctx.lineTo(i, canvas.height); ctx.stroke();
+            for(let i = 0; i < canvas.width; i += 50) {
+                ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, canvas.height); ctx.stroke();
             }
-            for(let i=0; i<canvas.height; i+=60) {
-                ctx.beginPath(); ctx.moveTo(0,i); ctx.lineTo(canvas.width, i); ctx.stroke();
+            for(let i = 0; i < canvas.height; i += 50) {
+                ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(canvas.width, i); ctx.stroke();
             }
 
-            // Draw Animated Technical Lines
-            ctx.strokeStyle = 'rgba(0, 64, 152, 0.08)';
-            points.forEach((p, i) => {
-                p.x += p.vx;
-                p.y += p.vy;
-                if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
-                if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
-                points.slice(i + 1).forEach(p2 => {
-                    let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-                    if(dist < 250) {
+            particles.forEach((p, index) => {
+                p.update();
+                p.draw();
+                
+                // Connect lines (Blueprint effect)
+                for (let j = index; j < particles.length; j++) {
+                    const dx = p.x - particles[j].x;
+                    const dy = p.y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 150) {
+                        ctx.strokeStyle = `rgba(0, 64, 152, ${0.15 - distance/1000})`;
+                        ctx.lineWidth = 0.5;
                         ctx.beginPath();
                         ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(p2.x, p2.y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
                         ctx.stroke();
                     }
-                });
+                }
             });
-            requestAnimationFrame(draw);
+            requestAnimationFrame(animate);
         }
 
-        window.addEventListener('resize', init);
-        init();
-        draw();
+        window.addEventListener('resize', initCanvas);
+        initCanvas();
+        createParticles();
+        animate();
 
-        // Reveal on scroll logic
+        // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
             if (window.scrollY > 50) {
-                nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.05)';
+                nav.style.padding = '12px 8%';
+                nav.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
             } else {
+                nav.style.padding = '20px 8%';
                 nav.style.boxShadow = 'none';
             }
         });
