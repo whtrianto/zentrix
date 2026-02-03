@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT TD Automotive Compressor Indonesia | TACI</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary-color: #003399; /* Deep Blue (Professional/Denso vibe) */
+            --accent-color: #e60012;  /* Toyota/Denso Red */
+            --dark-bg: #0a0a0c;
+            --text-light: #ffffff;
+            --text-gray: #b0b0b0;
+            --transition: all 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Particles Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle, #1a1a2e 0%, #0a0a0c 100%);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 12, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-light);
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 15%;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            letter-spacing: 5px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin-bottom: 35px;
+            animation: fadeInUp 1s ease 0.3s backwards;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: 2px solid var(--accent-color);
+            background: transparent;
+            color: var(--text-light);
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: var(--accent-color);
+            box-shadow: 0 0 20px var(--accent-color);
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 10%;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 15px auto;
+        }
+
+        /* About & Philosophy Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.07);
+            border-color: var(--primary-color);
+        }
+
+        .card h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Product Section */
+        .product-highlight {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            background: rgba(0, 51, 153, 0.1);
+            padding: 50px;
+            border-radius: 20px;
+            flex-wrap: wrap;
+        }
+
+        .product-text {
+            flex: 1;
+        }
+
+        .product-visual {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Icon / Dummy Image Replacement */
+        .comp-icon {
+            font-size: 100px;
+            color: var(--primary-color);
+            filter: drop-shadow(0 0 10px var(--primary-color));
+        }
+
+        footer {
+            padding: 50px 10%;
+            text-align: center;
+            background: #050507;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            color: var(--text-gray);
+            font-size: 0.8rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav ul { display: none; } /* Mobile simplicity */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Animasi Partikel (Otomotif/Tech Theme) -->
+    <div id="particles-js"></div>
+
+    <nav>
+        <div class="logo">TACI<span>.</span></div>
+        <ul>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#philosophy">Filosofi</a></li>
+            <li><a href="#products">Produk</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1>PRECISION DRIVEN</h1>
+        <p>PT TD Automotive Compressor Indonesia (TACI) adalah pemimpin manufaktur kompresor AC berkualitas tinggi yang mendukung efisiensi dan kenyamanan industri otomotif global.</p>
+        <a href="#about" class="btn">Jelajahi Profil Kami</a>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">Siapa Kami</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Visi Global</h3>
+                <p>Menjadi basis produksi kompresor tipe fixed terbesar di dunia dengan standar kualitas nomor 1.</p>
+            </div>
+            <div class="card">
+                <h3>Sinergi Strategis</h3>
+                <p>Kolaborasi antara Toyota Industries, Denso, Astra Otoparts, dan Toyota Tsusho.</p>
+            </div>
+            <div class="card">
+                <h3>Keunggulan OEM</h3>
+                <p>Penyedia utama komponen AC untuk merek terkemuka seperti Toyota, Daihatsu, Honda, hingga Mitsubishi.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="philosophy">
+        <h2 class="section-title">Nilai Utama</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>SAFETY</h3>
+                <p>Keselamatan adalah prioritas mutlak dalam setiap proses operasional kami.</p>
+            </div>
+            <div class="card">
+                <h3>QUALITY</h3>
+                <p>Presisi tinggi untuk menjamin kepuasan pelanggan di setiap produk.</p>
+            </div>
+            <div class="card">
+                <h3>COST</h3>
+                <p>Efisiensi yang kompetitif untuk mendukung pertumbuhan ekonomi global.</p>
+            </div>
+            <div class="card">
+                <h3>ENVIRONMENT</h3>
+                <p>Berkomitmen pada energi terbarukan melalui proyek Solar Cell berskala besar.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="products">
+        <h2 class="section-title">Produk Unggulan</h2>
+        <div class="product-highlight">
+            <div class="product-visual">
+                <div class="comp-icon">⚙️</div>
+            </div>
+            <div class="product-text">
+                <h3>High-Quality AC Compressor</h3>
+                <p>Produk kami dirancang untuk daya tahan maksimal dan performa pendinginan yang optimal di berbagai kondisi cuaca. Telah diproduksi lebih dari 10 juta unit untuk pasar domestik maupun ekspor internasional.</p>
+                <br>
+                <ul style="list-style: none;">
+                    <li>✔️ Presisi Tinggi & Minim Kebisingan</li>
+                    <li>✔️ Efisiensi Energi Maksimal</li>
+                    <li>✔️ Standar Kualitas Jepang</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="text-align: center;">
+        <h2 class="section-title">Hubungi Kami</h2>
+        <p>Kawasan Industri MM2100, Cikarang Barat, Bekasi - Jawa Barat</p>
+        <br>
+        <p>Email: contact@tacindonesia.id | Phone: (021) 898-xxxx</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 PT TD Automotive Compressor Indonesia. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Particles.js Library (via CDN) -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        /* --- JAVASCRIPT ANIMATION CONFIG --- */
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.2, "random": false },
+                "size": { "value": 3, "random": true },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#003399",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+                    "push": { "particles_nb": 4 }
+                }
+            },
+            "retina_detect": true
+        });
+
+        // Smooth Scroll effect
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
