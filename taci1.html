@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PT TD Automotive Compressor Indonesia | TACI</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* --- CSS STYLES --- */
         :root {
-            --primary-color: #003399; /* Deep Blue (Professional/Denso vibe) */
-            --accent-color: #e60012;  /* Toyota/Denso Red */
-            --dark-bg: #0a0a0c;
-            --text-light: #ffffff;
-            --text-gray: #b0b0b0;
-            --transition: all 0.4s ease;
+            --astra-blue: #004098;
+            --dark-blue: #002d6b;
+            --accent-blue: #007bff;
+            --bg-light: #ffffff;
+            --text-main: #2d2d2d;
+            --text-muted: #666666;
+            --border-color: #e0e0e0;
         }
 
         * {
@@ -24,20 +23,22 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-light);
-            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-light);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Particles Background */
-        #particles-js {
+        /* Background Animation Canvas */
+        #bg-canvas {
             position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: radial-gradient(circle, #1a1a2e 0%, #0a0a0c 100%);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
 
         /* Navigation */
@@ -49,344 +50,455 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(10, 10, 12, 0.8);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid var(--border-color);
+            transition: 0.3s;
         }
 
-        .logo {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--text-light);
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .logo span {
-            color: var(--accent-color);
+        .logo-box {
+            background: var(--astra-blue);
+            color: white;
+            padding: 5px 12px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .logo-text {
+            font-weight: 600;
+            color: var(--dark-blue);
+            font-size: 0.9rem;
+            text-transform: uppercase;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 30px;
+            gap: 35px;
         }
 
         nav ul li a {
             text-decoration: none;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            font-weight: 400;
+            color: var(--text-main);
+            font-size: 0.85rem;
+            font-weight: 600;
             text-transform: uppercase;
-            transition: var(--transition);
+            letter-spacing: 0.5px;
+            transition: 0.3s;
         }
 
         nav ul li a:hover {
-            color: var(--accent-color);
+            color: var(--astra-blue);
         }
 
         /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 0 15%;
+            padding: 0 10%;
+            margin-top: 60px;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-tagline {
+            color: var(--astra-blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            display: block;
         }
 
         .hero h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 4rem;
-            margin-bottom: 20px;
-            letter-spacing: 5px;
-            animation: fadeInDown 1s ease;
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            color: var(--dark-blue);
+            line-height: 1.1;
+            margin-bottom: 30px;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: var(--text-gray);
-            max-width: 700px;
-            margin-bottom: 35px;
-            animation: fadeInUp 1s ease 0.3s backwards;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            border-left: 4px solid var(--astra-blue);
+            padding-left: 20px;
         }
 
-        .btn {
-            padding: 15px 40px;
-            border: 2px solid var(--accent-color);
-            background: transparent;
-            color: var(--text-light);
-            text-transform: uppercase;
-            font-weight: bold;
-            cursor: pointer;
-            transition: var(--transition);
+        .cta-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            padding: 16px 35px;
+            background: var(--astra-blue);
+            color: white;
             text-decoration: none;
-            display: inline-block;
+            font-weight: 600;
+            border-radius: 2px;
+            transition: 0.3s;
         }
 
-        .btn:hover {
-            background: var(--accent-color);
-            box-shadow: 0 0 20px var(--accent-color);
+        .btn-primary:hover {
+            background: var(--dark-blue);
+            box-shadow: 0 10px 20px rgba(0,64,152,0.2);
         }
 
-        /* Sections */
-        section {
-            padding: 100px 10%;
-            position: relative;
+        /* Statistics Section */
+        .stats {
+            background: var(--dark-blue);
+            padding: 60px 10%;
+            display: flex;
+            justify-content: space-between;
+            color: white;
         }
 
-        .section-title {
-            font-family: 'Orbitron', sans-serif;
+        .stat-item h2 {
             font-size: 2.5rem;
-            margin-bottom: 50px;
-            text-align: center;
-            position: relative;
+            margin-bottom: 5px;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--accent-color);
-            margin: 15px auto;
+        .stat-item p {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            opacity: 0.8;
+            letter-spacing: 1px;
         }
 
-        /* About & Philosophy Grid */
-        .grid {
+        /* About Section */
+        section {
+            padding: 120px 10%;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-header span {
+            color: var(--astra-blue);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-top: 10px;
+        }
+
+        .grid-about {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: #eee;
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 30px 30px 0px var(--astra-blue);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.1);
+        }
+
+        /* Value Cards */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
 
-        .card {
-            background: rgba(255, 255, 255, 0.03);
+        .value-card {
             padding: 40px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: var(--transition);
-            text-align: center;
+            background: white;
+            border: 1px solid var(--border-color);
+            transition: 0.4s;
         }
 
-        .card:hover {
+        .value-card:hover {
+            border-top: 4px solid var(--astra-blue);
             transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.07);
-            border-color: var(--primary-color);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
         }
 
-        .card h3 {
-            color: var(--accent-color);
+        .value-card h3 {
             margin-bottom: 15px;
-            font-family: 'Orbitron', sans-serif;
+            color: var(--astra-blue);
         }
 
-        /* Product Section */
-        .product-highlight {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            background: rgba(0, 51, 153, 0.1);
-            padding: 50px;
-            border-radius: 20px;
-            flex-wrap: wrap;
-        }
-
-        .product-text {
-            flex: 1;
-        }
-
-        .product-visual {
-            flex: 1;
-            min-width: 300px;
-            display: flex;
-            justify-content: center;
-        }
-
-        /* Icon / Dummy Image Replacement */
-        .comp-icon {
-            font-size: 100px;
-            color: var(--primary-color);
-            filter: drop-shadow(0 0 10px var(--primary-color));
-        }
-
+        /* Footer */
         footer {
-            padding: 50px 10%;
+            background: #1a1a1a;
+            color: white;
+            padding: 80px 10% 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 30px;
             text-align: center;
-            background: #050507;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        footer p {
-            color: var(--text-gray);
             font-size: 0.8rem;
+            color: #888;
         }
 
-        /* Animations */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        /* Animation Keyframes */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Responsive */
+        .reveal {
+            animation: fadeInUp 1s ease forwards;
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            nav ul { display: none; } /* Mobile simplicity */
+            .grid-about { grid-template-columns: 1fr; }
+            nav ul { display: none; }
+            .stats { flex-wrap: wrap; gap: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Background Animasi Partikel (Otomotif/Tech Theme) -->
-    <div id="particles-js"></div>
+    <canvas id="bg-canvas"></canvas>
 
     <nav>
-        <div class="logo">TACI<span>.</span></div>
+        <div class="logo-area">
+            <div class="logo-box">TACI</div>
+            <div class="logo-text">TD Automotive<br>Compressor Indonesia</div>
+        </div>
         <ul>
-            <li><a href="#home">Beranda</a></li>
-            <li><a href="#about">Tentang</a></li>
-            <li><a href="#philosophy">Filosofi</a></li>
-            <li><a href="#products">Produk</a></li>
-            <li><a href="#contact">Kontak</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#values">Our Values</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <section class="hero" id="home">
-        <h1>PRECISION DRIVEN</h1>
-        <p>PT TD Automotive Compressor Indonesia (TACI) adalah pemimpin manufaktur kompresor AC berkualitas tinggi yang mendukung efisiensi dan kenyamanan industri otomotif global.</p>
-        <a href="#about" class="btn">Jelajahi Profil Kami</a>
+        <div class="hero-content">
+            <span class="hero-tagline">Excellence in Precision</span>
+            <h1>The Heart of Your Vehicle's Comfort.</h1>
+            <p>Sebagai bagian dari jaringan Astra dan Denso, kami memproduksi kompresor AC otomotif kelas dunia dengan standar kualitas Jepang yang tak tertandingi untuk mobilitas global.</p>
+            <div class="cta-group">
+                <a href="#about" class="btn-primary">Learn More</a>
+            </div>
+        </div>
     </section>
+
+    <div class="stats">
+        <div class="stat-item">
+            <h2>2011</h2>
+            <p>Established</p>
+        </div>
+        <div class="stat-item">
+            <h2>10M+</h2>
+            <p>Units Produced</p>
+        </div>
+        <div class="stat-item">
+            <h2>4+</h2>
+            <p>Global Partners</p>
+        </div>
+        <div class="stat-item">
+            <h2>ISO</h2>
+            <p>Certified Quality</p>
+        </div>
+    </div>
 
     <section id="about">
-        <h2 class="section-title">Siapa Kami</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Visi Global</h3>
-                <p>Menjadi basis produksi kompresor tipe fixed terbesar di dunia dengan standar kualitas nomor 1.</p>
+        <div class="grid-about">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" alt="Factory">
             </div>
-            <div class="card">
-                <h3>Sinergi Strategis</h3>
-                <p>Kolaborasi antara Toyota Industries, Denso, Astra Otoparts, dan Toyota Tsusho.</p>
-            </div>
-            <div class="card">
-                <h3>Keunggulan OEM</h3>
-                <p>Penyedia utama komponen AC untuk merek terkemuka seperti Toyota, Daihatsu, Honda, hingga Mitsubishi.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="philosophy">
-        <h2 class="section-title">Nilai Utama</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>SAFETY</h3>
-                <p>Keselamatan adalah prioritas mutlak dalam setiap proses operasional kami.</p>
-            </div>
-            <div class="card">
-                <h3>QUALITY</h3>
-                <p>Presisi tinggi untuk menjamin kepuasan pelanggan di setiap produk.</p>
-            </div>
-            <div class="card">
-                <h3>COST</h3>
-                <p>Efisiensi yang kompetitif untuk mendukung pertumbuhan ekonomi global.</p>
-            </div>
-            <div class="card">
-                <h3>ENVIRONMENT</h3>
-                <p>Berkomitmen pada energi terbarukan melalui proyek Solar Cell berskala besar.</p>
+            <div class="about-text">
+                <div class="section-header">
+                    <span>Corporate Profile</span>
+                    <h2>Leading The Industry With Innovation</h2>
+                </div>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">
+                    PT TD Automotive Compressor Indonesia (TACI) adalah perusahaan joint venture antara <b>Toyota Industries Corporation, Denso, Astra Otoparts,</b> dan <b>Toyota Tsusho</b>. 
+                </p>
+                <p style="color: var(--text-muted);">
+                    Kami berfokus pada manufaktur kompresor tipe fixed untuk sistem pendingin udara mobil, melayani pasar Original Equipment Manufacturer (OEM) terbesar di Asia Tenggara dengan dedikasi tinggi terhadap efisiensi energi.
+                </p>
             </div>
         </div>
     </section>
 
-    <section id="products">
-        <h2 class="section-title">Produk Unggulan</h2>
-        <div class="product-highlight">
-            <div class="product-visual">
-                <div class="comp-icon">⚙️</div>
+    <section id="values" style="background: rgba(255,255,255,0.5);">
+        <div class="section-header" style="text-align: center;">
+            <span>Our Philosophy</span>
+            <h2>The TACI Way</h2>
+        </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <h3>Quality First</h3>
+                <p>Memastikan setiap unit kompresor melewati uji presisi mikron demi performa AC yang optimal.</p>
             </div>
-            <div class="product-text">
-                <h3>High-Quality AC Compressor</h3>
-                <p>Produk kami dirancang untuk daya tahan maksimal dan performa pendinginan yang optimal di berbagai kondisi cuaca. Telah diproduksi lebih dari 10 juta unit untuk pasar domestik maupun ekspor internasional.</p>
-                <br>
-                <ul style="list-style: none;">
-                    <li>✔️ Presisi Tinggi & Minim Kebisingan</li>
-                    <li>✔️ Efisiensi Energi Maksimal</li>
-                    <li>✔️ Standar Kualitas Jepang</li>
-                </ul>
+            <div class="value-card">
+                <h3>Safety Culture</h3>
+                <p>Menciptakan lingkungan kerja yang aman bagi ribuan talenta kami melalui standar K3 internasional.</p>
+            </div>
+            <div class="value-card">
+                <h3>Green Energy</h3>
+                <p>Mendukung keberlanjutan dengan implementasi panel surya dan reduksi emisi karbon di pabrik kami.</p>
+            </div>
+            <div class="value-card">
+                <h3>Continuous Kaizen</h3>
+                <p>Inovasi tiada henti dalam proses manufaktur untuk mencapai efisiensi biaya dan waktu.</p>
             </div>
         </div>
-    </section>
-
-    <section id="contact" style="text-align: center;">
-        <h2 class="section-title">Hubungi Kami</h2>
-        <p>Kawasan Industri MM2100, Cikarang Barat, Bekasi - Jawa Barat</p>
-        <br>
-        <p>Email: contact@tacindonesia.id | Phone: (021) 898-xxxx</p>
     </section>
 
     <footer>
-        <p>&copy; 2024 PT TD Automotive Compressor Indonesia. All Rights Reserved.</p>
+        <div class="footer-grid">
+            <div>
+                <h3 style="margin-bottom: 20px;">PT TACI</h3>
+                <p style="color: #aaa; font-size: 0.9rem;">Kawasan Industri MM2100 Blok LL No. 9-10,<br>Cikarang Barat, Bekasi, Jawa Barat 17520, Indonesia.</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 20px;">Navigation</h4>
+                <ul style="list-style: none; color: #aaa; font-size: 0.9rem;">
+                    <li style="margin-bottom: 10px;">Careers</li>
+                    <li style="margin-bottom: 10px;">Sustainability</li>
+                    <li style="margin-bottom: 10px;">News & Updates</li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 20px;">Follow Us</h4>
+                <p style="color: #aaa; font-size: 0.9rem;">Terhubung dengan kami untuk mendapatkan informasi terbaru seputar teknologi otomotif.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 PT TD Automotive Compressor Indonesia. Member of Astra & Denso Group.
+        </div>
     </footer>
 
-    <!-- Particles.js Library (via CDN) -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        /* --- JAVASCRIPT ANIMATION CONFIG --- */
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#ffffff" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.2, "random": false },
-                "size": { "value": 3, "random": true },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#003399",
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 2,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": { "enable": true, "mode": "grab" },
-                    "onclick": { "enable": true, "mode": "push" },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
-                    "push": { "particles_nb": 4 }
-                }
-            },
-            "retina_detect": true
-        });
+        /* --- BACKGROUND ANIMATION (TECHNICAL BLUEPRINT STYLE) --- */
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
 
-        // Smooth Scroll effect
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        function initCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+
+            draw() {
+                ctx.fillStyle = 'rgba(0, 64, 152, 0.15)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function createParticles() {
+            for (let i = 0; i < 60; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw subtle grid
+            ctx.strokeStyle = 'rgba(0, 64, 152, 0.03)';
+            ctx.lineWidth = 1;
+            for(let i = 0; i < canvas.width; i += 50) {
+                ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, canvas.height); ctx.stroke();
+            }
+            for(let i = 0; i < canvas.height; i += 50) {
+                ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(canvas.width, i); ctx.stroke();
+            }
+
+            particles.forEach((p, index) => {
+                p.update();
+                p.draw();
+                
+                // Connect lines (Blueprint effect)
+                for (let j = index; j < particles.length; j++) {
+                    const dx = p.x - particles[j].x;
+                    const dy = p.y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 150) {
+                        ctx.strokeStyle = `rgba(0, 64, 152, ${0.15 - distance/1000})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
             });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', initCanvas);
+        initCanvas();
+        createParticles();
+        animate();
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.padding = '12px 8%';
+                nav.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.padding = '20px 8%';
+                nav.style.boxShadow = 'none';
+            }
         });
     </script>
 </body>
